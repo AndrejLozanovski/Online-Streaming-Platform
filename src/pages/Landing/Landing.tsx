@@ -231,9 +231,9 @@ const Landing = () => {
 
       <section className="landing-page-footer">
         <p>
-          Copyright&copy; <span>2024</span>
+          Kinemoe.mk&copy; <span>2024</span>
         </p>
-        <img src={require(`../../assets/images/Logo/logo.png`)} alt="Logo" />
+        <img src={require(`../../assets/images/Logo/logo.png`)} alt="Kinemoe Logo" />
       </section>
     </section>
   );
