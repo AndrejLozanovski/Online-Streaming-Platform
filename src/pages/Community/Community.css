@@ -1,0 +1,112 @@
+.community-page {
+  background: rgba(11, 21, 27, 1);
+  color: white;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.community-page button {
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 15px;
+  cursor: pointer;
+  background: rgba(81, 156, 60, 1);
+  color: white;
+  font-size: 16px;
+}
+
+.community-page .community-comments-section {
+  margin-left: 10%;
+  flex-basis: 70%;
+  padding: 2% 0;
+}
+
+.community-page .community-comments-section h1 {
+  font-size: 48px;
+}
+
+.community-page .community-comments-section .community-search-discussion-section {
+  display: flex;
+  align-items: center;
+  margin: 30px 0px;
+}
+
+.community-page .community-comments-section .community-search-discussion-section input {
+  width: 40%;
+  padding: 12px;
+  border-radius: 15px;
+  border: 1px solid rgba(21, 40, 51, 1);
+  background-color: inherit;
+}
+
+.community-page .community-comments-section .community-search-discussion-section button {
+  margin-left: auto;
+}
+
+.community-page .community-comments-section .community-comments button {
+  margin-left: 50%;
+  margin: 2% 0% 2% 50%;
+  width: 12%;
+}
+
+.community-page .community-comments-section .community-comments .posts-rating {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 2%;
+  font-size: 16px;
+  line-height: 20px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.community-page .community-badge-section {
+  flex-basis: 20%;
+  margin: 0 1%;
+  position: relative;
+}
+
+.community-page .community-badge-section .badge {
+  background: rgba(21, 40, 51, 1);
+  border-radius: 20px;
+  padding: 5%;
+  width: 80%;
+  position: absolute;
+  top: 20%;
+}
+
+.community-page .community-badge-section .badge p {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.community-page .community-badge-section .badge .latest-comment small {
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.community-page .community-badge-section .badge .latest-comment .comment-box {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 10px;
+  padding: 8px 10px;
+  margin-bottom: 5px;
+}
+
+.community-page .community-badge-section .badge .latest-comment .comment-box span {
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.community-page .community-badge-section .badge .latest-comment .comment-box .user {
+  display: flex;
+  align-items: center;
+}
+
+.community-page .community-badge-section .badge .latest-comment .comment-box .user img {
+  width: 20%;
+  margin-right: 5px;
+}

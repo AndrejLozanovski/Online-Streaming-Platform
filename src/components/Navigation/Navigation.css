@@ -1,0 +1,153 @@
+nav {
+  background: linear-gradient(
+    179.2deg,
+    rgba(64, 60, 60, 0.19) -10.59%,
+    rgba(64, 60, 60, 0.11) 102.31%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 7%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 999999;
+}
+
+nav .nav-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  justify-content: space-between;
+}
+
+nav .nav-wrapper .nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+nav .nav-wrapper .nav-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+nav .nav-wrapper .nav-list .menu-dropdown {
+  display: flex;
+  padding: 20px;
+  border-radius: 25px;
+  flex-direction: row;
+  justify-content: space-between;
+  position: absolute;
+  top: 20%;
+  left: 110%;
+  box-shadow: 12px 9px 6.8px 0px rgba(0, 0, 0, 0.25);
+  background-color: white;
+}
+
+nav .nav-wrapper .nav-list .menu-dropdown .move-up span {
+  font-size: 15px;
+  font-weight: 500;
+  color: black;
+}
+
+nav .nav-wrapper .nav-list .menu-dropdown img {
+  margin: 0 35px;
+}
+
+.move-up {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.move-up span {
+  position: absolute;
+  left: 50%;
+  bottom: -15px;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  white-space: nowrap;
+  font-size: 20px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+}
+
+.move-up:hover span {
+  opacity: 1;
+}
+
+.move-up img {
+  display: block;
+  transform: translateY(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.move-up:hover img {
+  transform: translateY(-15px);
+}
+
+.rotate {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.rotate span {
+  position: absolute;
+  left: 50%;
+  bottom: -15px;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  white-space: nowrap;
+  font-size: 20px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+}
+
+.rotate:hover span {
+  opacity: 1;
+}
+
+.rotate img {
+  display: block;
+  transform: translateY(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.rotate:hover img {
+  transform: translateY(-15px) rotate(-45deg);
+}
+
+.mb-40 {
+  margin-bottom: 40px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}

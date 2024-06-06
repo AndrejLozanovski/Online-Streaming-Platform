@@ -1,0 +1,51 @@
+.search-page {
+  color: white;
+}
+
+.search-page .search-page-content {
+  margin-left: 10%;
+}
+
+.search-page .search-bar {
+  position: relative;
+  margin: 3% 0%;
+  margin-left: 35%;
+}
+
+.search-page .search-bar input {
+  padding: 14px;
+  padding-left: 4%;
+  background-color: inherit;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 1);
+  color: white;
+  width: 40%;
+}
+
+.search-page .search-bar img {
+  width: 30px;
+  position: absolute;
+  left: 0.5%;
+  top: 15%;
+}
+
+.search-page .divider {
+  border: 1px solid rgba(255, 255, 255, 1);
+  margin: 50px 0px;
+  width: 98%;
+}
+
+.similar-results {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.similar-results img {
+  width: 15%;
+  border-radius: 10px;
+  margin: 20px 0px;
+}
+
+.similar-results img:not(:last-child) {
+  margin-right: 25px;
+}

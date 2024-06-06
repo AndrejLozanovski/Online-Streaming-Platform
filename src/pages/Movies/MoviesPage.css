@@ -1,0 +1,52 @@
+.movies-room {
+  background-color: rgba(11, 21, 27, 1);
+}
+
+.title-and-categories {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  position: absolute;
+  top: 6%;
+  left: 10%;
+  color: white;
+}
+
+.title-and-categories h1 {
+  font-size: 56px;
+  font-weight: 700;
+  color: rgba(217, 217, 217, 1);
+}
+
+.categories-dropdown {
+  width: 8%;
+  padding: 8px 5px;
+  border-radius: 10px;
+  border: 0.5px solid rgba(217, 217, 217, 1);
+  opacity: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  top: 6%;
+  right: 9%;
+  color: rgba(217, 217, 217, 1);
+}
+
+.categories-dropdown img {
+  width: 10px;
+}
+
+.movies-room .movies-room-movies-genres-section {
+  margin-left: 10%;
+}
+
+.movies-room .movies-room-movies-genres-section .show-more {
+  border-radius: 10px;
+  background: rgba(60, 122, 157, 1);
+  border: 0;
+  padding: 8px 0px;
+  width: 20%;
+  margin-left: 40%;
+  margin-top: 5%;
+}

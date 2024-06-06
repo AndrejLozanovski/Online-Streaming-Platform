@@ -1,0 +1,43 @@
+@keyframes scroll {
+  0% {
+    transform: translateX(-52.75%);
+  }
+  100% {
+    transform: translateX(-308.75%);
+  }
+}
+
+.homepage {
+  background-color: rgba(11, 21, 27, 1);
+}
+
+.homepage .homepage-movie-slider {
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+  z-index: 999999999;
+  bottom: 2%;
+  right: 0;
+  width: 45%;
+}
+
+.homepage-movie-slider .movies {
+  display: inline-block;
+  animation: 15s scroll infinite linear;
+}
+
+.homepage .homepage-movie-slider .movies img {
+  width: 35%;
+  cursor: pointer;
+  margin: 0 30px;
+  border-radius: 10px;
+}
+
+.homepage .homepage-movies-section {
+  margin-left: 10%;
+}
+
+.homepage .homepage-movies-section .movie-banner img {
+  width: 98%;
+  border-radius: 10px;
+}

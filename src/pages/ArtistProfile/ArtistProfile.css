@@ -1,0 +1,207 @@
+.artist-profile-page {
+  background-color: rgba(11, 21, 27, 1);
+}
+
+.artist-profile-page .artist-profile-page-banner {
+  height: 30vh;
+  background-image: url("../../assets/images/UserArtistPage/banner.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+
+.artist-profile-page .artist-profile-page-banner .like-wlist-share-buttons {
+  position: absolute;
+  left: 26%;
+  top: 80%;
+  display: flex;
+  justify-content: space-between;
+  width: 10%;
+}
+
+.artist-profile-page .artist-profile-page-content {
+  display: flex;
+  margin-left: 7%;
+  color: white;
+}
+
+.artist-profile-page .artist-profile-page-content .artist-profile-page-artist-info {
+  flex-basis: 20%;
+  background-color: rgb(37, 80, 104);
+  border-radius: 0px 0px 32px 0px;
+  text-align: center;
+  position: relative;
+}
+
+.artist-profile-page .artist-profile-page-content .artist-profile-page-artist-info .artist-info {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.artist-profile-page
+  .artist-profile-page-content
+  .artist-profile-page-artist-info
+  .artist-info
+  .profile-picture {
+  width: 50%;
+  border-radius: 190px;
+  position: absolute;
+  left: 25%;
+  top: -15%;
+}
+
+.artist-profile-page
+  .artist-profile-page-content
+  .artist-profile-page-artist-info
+  .artist-info
+  .verified {
+  position: absolute;
+  width: 15%;
+  top: -16%;
+  left: 60%;
+}
+
+.artist-profile-page
+  .artist-profile-page-content
+  .artist-profile-page-artist-info
+  .artist-info
+  .artist-name {
+  padding-top: 65px;
+  padding-bottom: 30px;
+}
+
+.artist-profile-page
+  .artist-profile-page-content
+  .artist-profile-page-artist-info
+  .artist-info
+  .artist-name
+  h1 {
+  font-size: 32px;
+  line-height: 38.4px;
+}
+
+.artist-profile-page .artist-profile-page-content .artist-profile-page-artist-info .artist-info h3 {
+  font-size: 24px;
+  line-height: 24px;
+  margin-bottom: 10px;
+}
+
+.artist-profile-page
+  .artist-profile-page-content
+  .artist-profile-page-artist-info
+  .artist-info
+  .artist-name
+  span {
+  font-size: 20px;
+  font-style: italic;
+  line-height: 24px;
+  letter-spacing: -0.03em;
+}
+
+.artist-profile-page
+  .artist-profile-page-content
+  .artist-profile-page-artist-info
+  .artist-info
+  .artist-name
+  p {
+  margin-top: 30px;
+}
+
+.artist-profile-page
+  .artist-profile-page-content
+  .artist-profile-page-artist-info
+  .artist-info
+  .artist-info-badges {
+  display: flex;
+  justify-content: space-around;
+}
+
+.artist-profile-page
+  .artist-profile-page-content
+  .artist-profile-page-artist-info
+  .artist-info
+  .artist-info-badges
+  img {
+  width: 14.5%;
+}
+
+.artist-profile-page
+  .artist-profile-page-content
+  .artist-profile-page-artist-info
+  .artist-info
+  .divider {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  margin: 20px 0px;
+}
+
+.artist-profile-page
+  .artist-profile-page-content
+  .artist-profile-page-artist-info
+  .comments-discussions {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.artist-profile-page
+  .artist-profile-page-content
+  .artist-profile-page-artist-info
+  .comments-discussions
+  p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.artist-profile-page .artist-profile-page-content .artist-profile-page-artist-activities {
+  margin-left: 2%;
+  margin-top: 1%;
+  flex-basis: 80%;
+}
+
+.artist-profile-page
+  .artist-profile-page-content
+  .artist-profile-page-artist-activities
+  .artist-comments
+  .artist-profile-comments {
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 11px;
+  box-shadow: 2px 4px 20px 0px rgba(0, 0, 0, 0.25);
+  padding: 8px 10px 8px 10px;
+  margin: 10px 0px;
+}
+
+.artist-profile-page
+  .artist-profile-page-content
+  .artist-profile-page-artist-activities
+  .artist-comments
+  .artist-profile-comments
+  .picture-name {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.artist-profile-page
+  .artist-profile-page-content
+  .artist-profile-page-artist-activities
+  .artist-comments
+  .artist-profile-comments
+  .picture-name
+  img {
+  width: 3%;
+  border-radius: 50%;
+}
+
+.artist-profile-page
+  .artist-profile-page-content
+  .artist-profile-page-artist-activities
+  .artist-comments
+  .artist-profile-comments
+  .picture-name
+  img:nth-child(2) {
+  width: 1.5%;
+  margin: 0 0.5%;
+}

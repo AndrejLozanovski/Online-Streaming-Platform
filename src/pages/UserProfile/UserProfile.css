@@ -1,0 +1,166 @@
+.user-profile-page {
+  background-color: rgba(11, 21, 27, 1);
+}
+
+.user-profile-page .user-profile-page-banner {
+  height: 30vh;
+  background-image: url("../../assets/images/UserArtistPage/banner.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+
+.user-profile-page .user-profile-page-banner .like-wlist-share-buttons {
+  position: absolute;
+  left: 26%;
+  top: 80%;
+  display: flex;
+  justify-content: space-between;
+  width: 10%;
+}
+
+.user-profile-page .user-profile-page-content {
+  display: flex;
+  margin-left: 7%;
+  color: white;
+}
+
+.user-profile-page .user-profile-page-content .user-profile-page-user-info {
+  flex-basis: 20%;
+  background-color: rgb(37, 80, 104);
+  border-radius: 0px 0px 32px 0px;
+  text-align: center;
+  position: relative;
+}
+
+.user-profile-page .user-profile-page-content .user-profile-page-user-info .user-info {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.user-profile-page
+  .user-profile-page-content
+  .user-profile-page-user-info
+  .user-info
+  .profile-picture {
+  width: 50%;
+  border-radius: 190px;
+  position: absolute;
+  left: 25%;
+  top: -15%;
+}
+
+.user-profile-page .user-profile-page-content .user-profile-page-user-info .user-info .user-name {
+  padding-top: 65px;
+  padding-bottom: 30px;
+}
+
+.user-profile-page
+  .user-profile-page-content
+  .user-profile-page-user-info
+  .user-info
+  .user-name
+  h1 {
+  font-size: 32px;
+  line-height: 38.4px;
+}
+
+.user-profile-page .user-profile-page-content .user-profile-page-user-info .user-info h3 {
+  font-size: 24px;
+  line-height: 24px;
+  margin-bottom: 10px;
+}
+
+.user-profile-page
+  .user-profile-page-content
+  .user-profile-page-user-info
+  .user-info
+  .user-name
+  span {
+  font-size: 20px;
+  font-style: italic;
+  line-height: 24px;
+  letter-spacing: -0.03em;
+}
+
+.user-profile-page .user-profile-page-content .user-profile-page-user-info .user-info .user-name p {
+  margin-top: 30px;
+}
+
+.user-profile-page
+  .user-profile-page-content
+  .user-profile-page-user-info
+  .user-info
+  .user-info-badges {
+  display: flex;
+  justify-content: space-around;
+}
+
+.user-profile-page
+  .user-profile-page-content
+  .user-profile-page-user-info
+  .user-info
+  .user-info-badges
+  img {
+  width: 14.5%;
+}
+
+.user-profile-page .user-profile-page-content .user-profile-page-user-info .user-info .divider {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  margin: 20px 0px;
+}
+
+.user-profile-page .user-profile-page-content .user-profile-page-user-info .comments-discussions {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.user-profile-page .user-profile-page-content .user-profile-page-user-info .comments-discussions p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.user-profile-page .user-profile-page-content .user-profile-page-user-activities {
+  margin-left: 2%;
+  margin-top: 1%;
+  flex-basis: 80%;
+}
+
+.user-profile-page
+  .user-profile-page-content
+  .user-profile-page-user-activities
+  .user-comments
+  .user-profile-comments {
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 11px;
+  box-shadow: 2px 4px 20px 0px rgba(0, 0, 0, 0.25);
+  padding: 8px 10px 8px 10px;
+  margin: 10px 0px;
+}
+
+.user-profile-page
+  .user-profile-page-content
+  .user-profile-page-user-activities
+  .user-comments
+  .user-profile-comments
+  .picture-name {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.user-profile-page
+  .user-profile-page-content
+  .user-profile-page-user-activities
+  .user-comments
+  .user-profile-comments
+  .picture-name
+  img {
+  width: 3%;
+  border-radius: 50%;
+  margin-right: 1%;
+}

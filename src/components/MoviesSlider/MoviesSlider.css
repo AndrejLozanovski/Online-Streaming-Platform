@@ -1,0 +1,23 @@
+.movies-carousel {
+  position: relative;
+  margin: 30px 0px;
+}
+
+.movies-carousel .title {
+  margin-bottom: 20px;
+}
+
+.movies-carousel .movies .movies-container {
+  display: flex;
+  overflow: hidden;
+}
+
+.movies-carousel .movies .movies-container img {
+  width: 15%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.movies-carousel .movies .movies-container img:not(:last-child) {
+  margin-right: 35px;
+}

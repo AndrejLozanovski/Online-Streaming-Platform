@@ -1,0 +1,48 @@
+.sing-up-pop-up .sing-up-pop-up-two-content p {
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sing-up-pop-up .sing-up-pop-up-two-content img {
+  margin-right: 5px;
+}
+
+.sing-up-pop-up .sing-up-pop-up-two-content .sign-up-interests-container .first-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.sing-up-pop-up .sing-up-pop-up-two-content .sign-up-interests-container .second-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 70px;
+}
+
+.sing-up-pop-up .sing-up-pop-up-two-content .sign-up-interests-container .sign-up-interests {
+  width: 10.5%;
+  display: flex;
+  justify-content: center;
+  padding: 5px 0px;
+  border-radius: 48px;
+  border: 1px solid rgba(255, 255, 255, 1);
+  text-align: center;
+  margin-right: 40px;
+  cursor: pointer;
+}
+
+.sing-up-pop-up .sing-up-pop-up-two-content .sign-up-interests-container .sign-up-interests:hover {
+  background: rgba(185, 0, 0, 1);
+}
+
+.sing-up-pop-up .sing-up-pop-up-two-content .sign-up-interests-container .sign-up-interests:active,
+.sing-up-pop-up
+  .sing-up-pop-up-two-content
+  .sign-up-interests-container
+  .sign-up-interests.selected {
+  background: rgba(81, 156, 60, 1);
+}

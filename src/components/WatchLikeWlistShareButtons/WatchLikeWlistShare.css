@@ -1,0 +1,24 @@
+.watch-like-wlist-share-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.watch-like-wlist-share-buttons .watch-button {
+  border-radius: 10px;
+  border: 0;
+  background-color: rgba(81, 156, 60, 1);
+  font-size: 22px;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 20px 12px 0px;
+}
+
+.watch-like-wlist-share-buttons img {
+  width: 35px;
+  margin: 0 20px;
+}

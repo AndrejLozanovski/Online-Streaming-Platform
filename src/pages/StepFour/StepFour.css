@@ -1,0 +1,44 @@
+.sing-up-pop-up .sing-up-pop-up-four-content {
+  width: 100%;
+}
+
+.sing-up-pop-up .sing-up-pop-up-four-content .title {
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sing-up-pop-up .sing-up-pop-up-four-content img {
+  margin-right: 5px;
+}
+
+.sing-up-pop-up .sing-up-pop-up-four-content .sign-up-engage-container {
+  display: flex;
+  justify-content: center;
+}
+
+.sing-up-pop-up .sing-up-pop-up-four-content .sign-up-engage-container .sign-up-engage {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  margin-bottom: 50px;
+  border-radius: 48px;
+  border: 1px solid rgba(255, 255, 255, 1);
+  text-align: center;
+  font-size: 20px;
+}
+
+.sing-up-pop-up .sing-up-pop-up-four-content .sign-up-engage-container .sign-up-engage img {
+  margin-right: 10px;
+}
+
+.sing-up-pop-up .sing-up-pop-up-four-content .sign-up-engage-container .sign-up-engage p {
+  font-size: 26px;
+  line-height: 43.2px;
+  text-align: center;
+}

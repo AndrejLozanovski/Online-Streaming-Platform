@@ -1,0 +1,112 @@
+.artist-overview-pop-up {
+  background: rgba(21, 21, 21, 1);
+  box-shadow: 0px -136px 83.8px 0px rgba(0, 0, 0, 0.13);
+  width: 70%;
+  height: 100%;
+  margin: 0 auto;
+  border-radius: 25px 25px 0px 0px;
+  color: white;
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  transform: translate(-50%, 0%);
+  overflow-x: hidden;
+}
+
+.artist-overview-pop-up::-webkit-scrollbar {
+  display: none;
+}
+
+.artist-overview-pop-up {
+  -ms-overflow-style: none;
+}
+
+.artist-overview-pop-up {
+  scrollbar-width: none;
+}
+
+.artist-overview-pop-up .artist-overview-banner {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50vh;
+  position: relative;
+}
+
+.artist-overview-pop-up .artist-overview-banner .artist-overview-banner-content {
+  position: absolute;
+  display: flex;
+  width: 90%;
+  left: 5%;
+  top: 5%;
+  text-align: center;
+}
+
+.artist-overview-pop-up .artist-overview-banner .artist-overview-banner-content img {
+  border-radius: 57px;
+  border: 1px solid rgba(255, 255, 255, 0.63);
+  margin-right: 3%;
+}
+
+.artist-overview-pop-up .artist-overview-banner .artist-overview-banner-content .artist-bio {
+  margin-top: 5%;
+}
+
+.artist-overview-pop-up .artist-overview-banner .artist-overview-banner-content .artist-bio h1 {
+  font-size: 50px;
+}
+
+.artist-overview-pop-up .artist-overview-banner .artist-overview-banner-content .artist-bio button {
+  padding: 15px 8px;
+  border-radius: 10px;
+  border: 0.5px solid rgba(217, 217, 217, 1);
+  opacity: 0px;
+  background: rgba(81, 156, 60, 1);
+  color: white;
+  width: 30%;
+  font-size: 20px;
+}
+
+.artist-overview-pop-up .artist-overview-banner .artist-overview-close {
+  position: absolute;
+  right: 5%;
+  top: 7%;
+  padding: 12px;
+  background: rgba(88, 88, 88, 1);
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.artist-overview-pop-up .artist-overview-banner .artist-overview-banner-content p {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.artist-overview-pop-up .artist-overview-banner .artist-overview-banner-content p {
+  margin: 30px 0px;
+}
+
+.artist-overview-pop-up .artist-overview-banner .artist-overview-banner-content p a {
+  text-decoration: none;
+  font-style: italic;
+  color: rgba(81, 156, 60, 1);
+}
+
+.artist-overview-content {
+  position: absolute;
+  left: 5%;
+  width: 100%;
+}
+
+.artist-overview-content .overview-comments {
+  margin-bottom: 50px;
+}
+
+.artist-overview-content .artist-awards {
+  margin: 50px 0px;
+  font-size: 20px;
+  width: 90%;
+}
+
+.artist-overview-content .artist-awards a {
+  color: white;
+}

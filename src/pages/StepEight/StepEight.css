@@ -1,0 +1,59 @@
+.sing-up-pop-up .sing-up-pop-up-eight-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.sing-up-pop-up .sing-up-pop-up-eight-content .title {
+  font-size: 22px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sing-up-pop-up .sing-up-pop-up-eight-content .title .title-header {
+  display: flex;
+  align-items: center;
+}
+
+.sing-up-pop-up .sing-up-pop-up-eight-content .title .title-header p {
+  font-size: 16px;
+  line-height: 50px;
+}
+
+.sing-up-pop-up .sing-up-pop-up-eight-content .title .title-header img {
+  margin-right: 5px;
+}
+
+.sing-up-pop-up .sing-up-pop-up-eight-content .sign-up-preferences-for-updates-container {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-around;
+  margin: 100px 0px;
+}
+
+.sing-up-pop-up .sing-up-pop-up-eight-content .sign-up-preferences-for-updates-container .update {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.sing-up-pop-up .sing-up-pop-up-eight-content .sign-up-preferences-for-updates-container .update p {
+  font-size: 30px;
+  line-height: 43.2px;
+}
+
+.sing-up-pop-up
+  .sing-up-pop-up-eight-content
+  .sign-up-preferences-for-updates-container
+  .update
+  img {
+  margin-right: 10px;
+}

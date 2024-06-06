@@ -1,0 +1,340 @@
+.d-flex {
+  display: flex;
+}
+
+.f-basis33 {
+  flex-basis: 33.3333%;
+}
+
+.landing-page {
+  color: white;
+}
+
+.landing-page-banner {
+  text-align: center;
+  background-image: linear-gradient(rgba(18, 31, 39, 0.7), rgba(11, 21, 27, 1)),
+    url("../../assets/images/Banner/baner7.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  color: white;
+  position: relative;
+  width: 100%;
+}
+
+.landing-page-banner .landing-banner-logo {
+  width: 700px;
+}
+
+.landing-page-banner .landing-page-banner-heading {
+  font-size: 64px;
+  text-transform: uppercase;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.landing-page-banner .landing-page-banner-text {
+  font-size: 32px;
+  margin-top: 0px;
+}
+
+.landing-page-banner .landing-page-banner-sign-log-button {
+  padding: 0px 60px;
+  border-radius: 10px;
+  border: 0;
+  background-color: #519c3c;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-size: 28px;
+  line-height: 50px;
+  color: white;
+  margin-top: 10px;
+}
+
+.landing-page-banner .landing-page-banner-sign-log-button:hover {
+  background-color: rgba(44, 123, 21, 1);
+}
+
+.landing-page-banner .landing-page-banner-sign-log-button:active {
+  border: 1px solid rgba(255, 255, 255, 1);
+  box-shadow: 0px 1px 12.3px 0px rgba(255, 255, 255, 1) inset;
+}
+.landing-page-banner .landing-page-banner-movies {
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+  bottom: -14.5%;
+  width: 100%;
+  margin-top: 500px;
+}
+
+.movie1 {
+  width: 12.3%;
+  margin-right: 5px;
+}
+
+.movie2 {
+  width: 13.7%;
+  margin-right: 5px;
+}
+
+.movie3 {
+  width: 15.1%;
+  margin-right: 5px;
+}
+
+.movie4 {
+  width: 16%;
+  margin-right: 5px;
+}
+
+.movie5 {
+  width: 15.1%;
+  margin-right: 5px;
+}
+
+.movie6 {
+  width: 13.7%;
+  margin-right: 5px;
+}
+
+.movie7 {
+  width: 12.3%;
+}
+
+.landing-page-icons {
+  background-image: url("../../assets/images/Banner/Mask\ group.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 7%;
+}
+
+.landing-page-icons .landing-page-icons-content {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  padding-top: 100px;
+}
+
+.landing-page-icons.show .landing-page-icons-content {
+  opacity: 1;
+}
+
+.landing-page-rooms {
+  margin-top: 100px;
+  width: 95%;
+  margin: 100px auto;
+}
+
+.landing-page-rooms .room-row-1,
+.landing-page-rooms .room-row-2 {
+  display: flex;
+  justify-content: center;
+}
+
+.landing-page-rooms .room-row-2 {
+  margin-top: 20px;
+}
+
+.landing-page-rooms .room-row-1 .movie-room,
+.landing-page-rooms .room-row-1 .kids-room,
+.landing-page-rooms .room-row-1 .doc-room,
+.landing-page-rooms .room-row-2 .podcasts-room,
+.landing-page-rooms .room-row-2 .tv-series-room {
+  text-align: center;
+}
+
+.landing-page-rooms .room-row-1 .movie-room .movies,
+.landing-page-rooms .room-row-1 .kids-room .kids,
+.landing-page-rooms .room-row-1 .doc-room .documentaries,
+.landing-page-rooms .room-row-2 .podcasts-room .podcasts,
+.landing-page-rooms .room-row-2 .tv-series-room .series {
+  position: relative;
+  min-height: 310px;
+}
+
+.landing-page-rooms .room-row-1 .movie-room .movies img,
+.landing-page-rooms .room-row-1 .kids-room .kids img,
+.landing-page-rooms .room-row-1 .doc-room .documentaries img,
+.landing-page-rooms .room-row-2 .podcasts-room .podcasts img,
+.landing-page-rooms .room-row-2 .tv-series-room .series img {
+  position: absolute;
+  padding: 5px;
+  width: 34.5%;
+  height: 100%;
+  border-radius: 15px;
+}
+
+.landing-page-rooms .room-row-1 .movie-room .movies img:nth-child(1),
+.landing-page-rooms .room-row-1 .kids-room .kids img:nth-child(1),
+.landing-page-rooms .room-row-1 .doc-room .documentaries img:nth-child(1),
+.landing-page-rooms .room-row-2 .podcasts-room .podcasts img:nth-child(1),
+.landing-page-rooms .room-row-2 .tv-series-room .series img:nth-child(1) {
+  z-index: 5;
+  left: 0;
+}
+
+.landing-page-rooms .room-row-1 .movie-room .movies img:nth-child(2),
+.landing-page-rooms .room-row-1 .kids-room .kids img:nth-child(2),
+.landing-page-rooms .room-row-1 .doc-room .documentaries img:nth-child(2),
+.landing-page-rooms .room-row-2 .podcasts-room .podcasts img:nth-child(2),
+.landing-page-rooms .room-row-2 .tv-series-room .series img:nth-child(2) {
+  z-index: 4;
+  left: 87px;
+}
+
+.landing-page-rooms .room-row-1 .movie-room .movies img:nth-child(3),
+.landing-page-rooms .room-row-1 .kids-room .kids img:nth-child(3),
+.landing-page-rooms .room-row-1 .doc-room .documentaries img:nth-child(3),
+.landing-page-rooms .room-row-2 .podcasts-room .podcasts img:nth-child(3),
+.landing-page-rooms .room-row-2 .tv-series-room .series img:nth-child(3) {
+  z-index: 3;
+  left: calc(87px * 2);
+}
+
+.landing-page-rooms .room-row-1 .movie-room .movies img:nth-child(4),
+.landing-page-rooms .room-row-1 .kids-room .kids img:nth-child(4),
+.landing-page-rooms .room-row-1 .doc-room .documentaries img:nth-child(4),
+.landing-page-rooms .room-row-2 .podcasts-room .podcasts img:nth-child(4),
+.landing-page-rooms .room-row-2 .tv-series-room .series img:nth-child(4) {
+  z-index: 2;
+  left: calc(87px * 3);
+}
+
+.landing-page-rooms .room-row-1 .movie-room .movies img:nth-child(5),
+.landing-page-rooms .room-row-1 .kids-room .kids img:nth-child(5),
+.landing-page-rooms .room-row-1 .doc-room .documentaries img:nth-child(5),
+.landing-page-rooms .room-row-2 .podcasts-room .podcasts img:nth-child(5),
+.landing-page-rooms .room-row-2 .tv-series-room .series img:nth-child(5) {
+  z-index: 1;
+  left: calc(87px * 4);
+}
+
+.landing-page-rooms img {
+  width: 100%;
+}
+
+.landing-page-meet-the-artists {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.landing-page-meet-the-artists .meet-the-artist-title {
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 77px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+}
+
+.landing-page-meet-the-artists .artists {
+  display: flex;
+  justify-content: space-around;
+}
+
+.artist-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    #152833 0deg,
+    #0b151b 180.88deg,
+    #152833 360deg
+  );
+  color: white;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 54px;
+  line-height: 96px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 550px;
+  margin: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.artist-card:hover {
+  transform: scale(1.05);
+}
+
+.artist-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.artist-card:hover::after {
+  opacity: 1;
+}
+
+.artist-card h3 {
+  margin: 0px;
+  padding-top: 30px;
+}
+
+.artist-card img {
+  width: 100%;
+}
+
+.landing-page-movie-banner {
+  position: relative;
+  width: 95%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.landing-page-movie-banner img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.landing-page-movie-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 99.5%;
+  background: linear-gradient(to left, #101011 0%, rgba(16, 16, 17, 0) 30.92%),
+    linear-gradient(to right, #101011 0%, rgba(16, 16, 17, 0) 30.92%);
+  border-radius: 10px;
+}
+
+.landing-page-footer {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 100px;
+  margin-top: 200px;
+}
+
+.landing-page-footer p {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 40px;
+  text-transform: uppercase;
+}
+
+.landing-page-footer span {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 40px;
+}
+
+.landing-page-footer img {
+  width: 300px;
+}

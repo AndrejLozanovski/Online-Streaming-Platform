@@ -1,0 +1,150 @@
+.signin-signup-pop-up {
+  background-color: rgba(27, 31, 35, 1);
+  width: 60%;
+  height: 75%;
+  margin: 0 auto;
+  border-radius: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.signin-signup-pop-up .signin-signup-pop-up-one-content {
+  display: flex;
+  align-items: center;
+}
+
+.signin-signup-pop-up .signin-signup-pop-up-one-content .signin-signup-pop-up-image {
+  width: 50%;
+  position: relative;
+}
+
+.signin-signup-pop-up .signin-signup-pop-up-one-content .signin-signup-pop-up-image .title {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-transform: uppercase;
+  font-family: Impact;
+  font-size: 100px;
+  font-weight: 400;
+}
+
+.signin-signup-pop-up .signin-signup-pop-up-one-content .signin-signup-pop-up-image .title span {
+  color: rgba(255, 0, 0, 1);
+}
+
+.signin-signup-pop-up .signin-signup-pop-up-one-content .signin-signup-pop-up-image img {
+  width: 100%;
+}
+
+.signin-signup-pop-up .signin-signup-pop-up-one-content .singin-signup-pop-up-form .title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.signin-signup-pop-up .signin-signup-pop-up-one-content .singin-signup-pop-up-form {
+  width: 35%;
+  margin: 0 auto;
+}
+
+.signin-signup-pop-up .signin-signup-pop-up-one-content .singin-signup-pop-up-form form input {
+  width: 100%;
+  padding: 12px 24px;
+  border-radius: 30px;
+  border: 0.5px solid rgba(255, 255, 255, 1);
+  margin-bottom: 20px;
+  background: rgba(27, 31, 35, 1);
+  color: white;
+  box-sizing: border-box;
+}
+
+.signin-signup-pop-up .signin-signup-pop-up-one-content .singin-signup-pop-up-form form button {
+  width: 100%;
+  padding: 12px 24px;
+  border-radius: 30px;
+  border: 0;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+  color: white;
+  font-size: 16px;
+  background: rgba(81, 156, 60, 1);
+}
+
+.signin-signup-pop-up
+  .signin-signup-pop-up-one-content
+  .singin-signup-pop-up-form
+  form
+  button:hover {
+  background-color: rgba(44, 123, 21, 1);
+}
+
+.signin-signup-pop-up
+  .signin-signup-pop-up-one-content
+  .singin-signup-pop-up-form
+  form
+  button:active {
+  border: 1px solid rgba(255, 255, 255, 1);
+  box-shadow: 0px 1px 12.3px 0px rgba(255, 255, 255, 1) inset;
+}
+
+.signin-signup-pop-up
+  .signin-signup-pop-up-one-content
+  .singin-signup-pop-up-form
+  .divider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.signin-signup-pop-up .signin-signup-pop-up-one-content .singin-signup-pop-up-form .line {
+  flex: 1;
+  height: 1px;
+  background-color: white;
+  margin: 0 10px;
+}
+
+.signin-signup-pop-up
+  .signin-signup-pop-up-one-content
+  .singin-signup-pop-up-form
+  .signin-signup-pop-up-social-buttons
+  .social-buttons {
+  width: 100%;
+  padding: 8px 24px;
+  border-radius: 30px;
+  border: 0.5px solid rgba(255, 255, 255, 1);
+  margin-bottom: 20px;
+  background: rgba(27, 31, 35, 1);
+  color: white;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.signin-signup-pop-up
+  .signin-signup-pop-up-one-content
+  .singin-signup-pop-up-form
+  .signin-signup-pop-up-social-buttons
+  .social-buttons
+  img {
+  margin-right: 20%;
+}
+
+.signin-signup-pop-up
+  .signin-signup-pop-up-one-content
+  .singin-signup-pop-up-form
+  .create-new-account {
+  font-style: italic;
+  text-align: center;
+}
+
+.create-new-account {
+  cursor: pointer;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}

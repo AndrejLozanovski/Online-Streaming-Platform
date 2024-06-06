@@ -1,0 +1,82 @@
+.movies-banner {
+  overflow: hidden;
+  color: white;
+  position: relative;
+}
+
+.movies-banner-wrapper {
+  position: absolute;
+  bottom: 2%;
+  left: 10%;
+}
+
+.movies-banner-content {
+  width: 40%;
+}
+
+.search-icon {
+  position: absolute;
+  z-index: 99999;
+  right: 5%;
+  top: 6%;
+}
+
+.search-icon img {
+  width: 30px;
+}
+
+.movies-banner-content p {
+  margin-bottom: 100px;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.movies-banner .slide {
+  position: relative;
+  flex: 0 0 100%;
+  font-size: 24px;
+  padding: 0px 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  height: 100vh;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.banner-one {
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)),
+    url("../../assets/images/Banner/banner1.png");
+  background-position: center;
+}
+
+.banner-two {
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)),
+    url("../../assets//images/Banner/banner7.png");
+}
+
+.banner-three {
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)),
+    url("../../assets//images/Banner/banner6.png");
+}
+
+.banner-four {
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)),
+    url("../../assets//images/Banner/banner5.png");
+}

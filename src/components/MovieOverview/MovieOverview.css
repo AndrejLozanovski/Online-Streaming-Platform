@@ -1,0 +1,98 @@
+.movie-overview-pop-up {
+  background-color: rgba(11, 21, 27, 1);
+  box-shadow: 0px -136px 83.8px 0px rgba(0, 0, 0, 0.13);
+  width: 70%;
+  height: 100%;
+  margin: 0 auto;
+  border-radius: 25px 25px 0px 0px;
+  color: white;
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  transform: translate(-50%, 0%);
+  overflow-x: hidden;
+}
+
+.movie-overview-pop-up::-webkit-scrollbar {
+  display: none;
+}
+
+.movie-overview-pop-up {
+  -ms-overflow-style: none;
+}
+
+.movie-overview-pop-up {
+  scrollbar-width: none;
+}
+
+.movie-overview-pop-up .movie-overview-banner {
+  background-image: linear-gradient(
+      180deg,
+      rgba(27, 26, 32, 0) 31.64%,
+      rgba(11, 21, 27, 0.7) 48.73%,
+      rgba(11, 21, 27, 0.9) 61.61%,
+      rgba(11, 21, 27, 0.97) 82.9%,
+      #0b151b 100%
+    ),
+    url("../../assets/images/Banner/banner7.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 70vh;
+  position: relative;
+}
+
+.movie-overview-pop-up .movie-overview-banner .movies-overview-banner-content {
+  width: 40%;
+  position: absolute;
+  bottom: 4%;
+  left: 5%;
+}
+
+.movie-overview-pop-up .movie-overview-banner .movies-overview-close {
+  position: absolute;
+  right: 5%;
+  top: 7%;
+  padding: 12px;
+  background: rgba(0, 0, 0, 1);
+  cursor: pointer;
+}
+
+.movie-overview-pop-up .movie-overview-banner .movies-overview-sound {
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+  cursor: pointer;
+}
+
+.movie-overview-pop-up .movie-overview-banner .movies-overview-banner-content p {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.movie-overview-pop-up
+  .movie-overview-banner
+  .movies-overview-banner-content
+  .movies-overview-logo {
+  width: 50%;
+}
+
+.movie-overview-pop-up .movie-overview-banner .movies-overview-banner-content p {
+  margin: 30px 0px;
+}
+
+.movie-overview-pop-up .movie-overview-banner .movies-overview-banner-content p a {
+  color: red;
+  text-decoration: none;
+  font-style: italic;
+  color: rgba(81, 156, 60, 1);
+}
+
+.movie-overview-content {
+  position: absolute;
+  left: 5%;
+  width: 100%;
+}
+
+.movie-overview-content .overview-comments {
+  margin-bottom: 50px;
+}
