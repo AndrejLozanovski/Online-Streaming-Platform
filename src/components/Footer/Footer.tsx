@@ -3,7 +3,7 @@ import "../Footer/Footer.css";
 const Footer = () => {
   return (
     <footer>
-      <p>KineMoe 2024 - All rights reserved.</p>
+      <p>AndrejLozanovski 2024 - All rights reserved.</p>
     </footer>
   );
 };

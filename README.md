@@ -1,6 +1,6 @@
-## KineMoe
+## Online streaming platform
 
-KineMoe App created in TS/React.
+Online streaming platform App created in TS/React.
 
 On the landing page there the user is welcomed by a banner with movies, a title logo and a button to sign up/log in.
 Under the banner there are different rooms, then comes the artists, a banner and the options to choose how do you want to use the app.

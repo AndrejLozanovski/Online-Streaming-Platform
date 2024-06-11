@@ -55,10 +55,10 @@ const SignIn = () => {
           <div className="signin-signup-pop-up-image">
             <div className="title">
               <p>
-                Kine<span>Moe</span>
+                Lo<span>go</span>
               </p>
             </div>
-            <img src={require(`../../assets/images/SignIn/signin.jpeg`)} alt="Kinemoe" />
+            <img src={require(`../../assets/images/SignIn/signin.jpeg`)} alt="image" />
           </div>
           <div className="singin-signup-pop-up-form">
             <div className="title">
