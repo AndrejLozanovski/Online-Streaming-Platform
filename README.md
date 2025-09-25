@@ -41,7 +41,13 @@ Install the dependencies in the terminal:
 
 ## Usage
 
-Start the application:
+1. Start the server: 
+
+`cd server`
+
+`node index.js`
+
+2. Start the application:
 
 `npm run start`
 
