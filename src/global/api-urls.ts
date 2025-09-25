@@ -1,5 +1,5 @@
-export const apiUrl = "http://localhost:5000/api";
-export const apiMovies = "http://localhost:5000/api/movies";
-export const apiActors = "http://localhost:5000/api/actors";
-export const apiKids = "http://localhost:5000/api/kids";
-export const apiPodcasts = "http://localhost:5000/api/podcasts";
+export const apiUrl = "/api";
+export const apiMovies = "/api/movies";
+export const apiActors = "/api/actors";
+export const apiKids = "/api/kids";
+export const apiPodcasts = "/api/podcasts";
