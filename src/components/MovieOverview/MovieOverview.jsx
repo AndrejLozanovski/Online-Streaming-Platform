@@ -5,6 +5,7 @@ import Comment from "../CommentCard/Comment";
 import { useState, useEffect, useRef } from "react";
 import MovieInfo from "../MovieInfo/MovieInfo";
 import ArtistOverview from "../ArtistOverview/ArtistOverview";
+import { apiMovies, apiActors } from "../../global/api-urls";
 
 const MovieOverview = ({ movieId, onClose, onArtistClick = () => {} }) => {
   const [movie, setMovie] = useState(null);
@@ -51,7 +52,7 @@ const MovieOverview = ({ movieId, onClose, onArtistClick = () => {} }) => {
     const fetchMovie = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:5000/api/movies/${movieId}`);
+        const response = await fetch(`${apiMovies}/${movieId}`);
 
         if (!response.ok) {
           throw new Error("Movie not found");
@@ -76,7 +77,7 @@ const MovieOverview = ({ movieId, onClose, onArtistClick = () => {} }) => {
   useEffect(() => {
     const fetchActors = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/actors');
+        const response = await fetch(apiActors);
         if (response.ok) {
           const data = await response.json();
           setActors(data);
