@@ -41,16 +41,36 @@ Install the dependencies in the terminal:
 
 ## Usage
 
-1. Start the server: 
+### Local Development
 
-`cd server`
-
-`node index.js`
-
-2. Start the application:
+1. Start the application:
 
 `npm run start`
 
 Browse your application on:
 
 `http://localhost:3000/`
+
+### Deployment to Netlify
+
+This application is configured for deployment on Netlify with serverless functions:
+
+1. **Connect your repository** to Netlify (GitHub, GitLab, or Bitbucket)
+
+2. **Build settings** (Netlify will auto-detect these from `netlify.toml`):
+   - Build command: `npm run build`
+   - Publish directory: `build`
+   - Functions directory: `netlify/functions`
+
+3. **Environment variables** (if needed):
+   - Set any required environment variables in Netlify's dashboard
+
+4. **Deploy**: Netlify will automatically build and deploy your application
+
+The backend API endpoints are converted to Netlify Functions and will be available at:
+- `/api/movies` - Movie data
+- `/api/podcasts` - Podcast data
+- `/api/kids` - Kids content data
+- `/api/actors` - Actor data
+
+Static thumbnails are served from the `/thumbnails` path.
