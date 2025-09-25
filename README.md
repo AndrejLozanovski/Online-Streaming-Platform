@@ -68,9 +68,9 @@ This application is configured for deployment on Netlify with serverless functio
 4. **Deploy**: Netlify will automatically build and deploy your application
 
 The backend API endpoints are converted to Netlify Functions and will be available at:
-- `/api/movies` - Movie data
-- `/api/podcasts` - Podcast data
-- `/api/kids` - Kids content data
-- `/api/actors` - Actor data
+- `/.netlify/functions/movies` - Movie data
+- `/.netlify/functions/podcasts` - Podcast data
+- `/.netlify/functions/kids` - Kids content data
+- `/.netlify/functions/actors` - Actor data
 
 Static thumbnails are served from the `/thumbnails` path.

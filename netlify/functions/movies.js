@@ -341,6 +341,8 @@ exports.handler = async (event, context) => {
   const path = event.path.replace('/.netlify/functions/movies', '');
   const method = event.httpMethod;
 
+  console.log('Movies function called with path:', event.path, 'method:', method);
+
   // Handle GET /api/movies/:id
   if (method === 'GET' && path && path !== '/') {
     const movieId = parseInt(path.substring(1)); // Remove leading slash

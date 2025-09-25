@@ -1,5 +1,5 @@
-export const apiUrl = "/api";
-export const apiMovies = "/api/movies";
-export const apiActors = "/api/actors";
-export const apiKids = "/api/kids";
-export const apiPodcasts = "/api/podcasts";
+export const apiUrl = "/.netlify/functions";
+export const apiMovies = "/.netlify/functions/movies";
+export const apiActors = "/.netlify/functions/actors";
+export const apiKids = "/.netlify/functions/kids";
+export const apiPodcasts = "/.netlify/functions/podcasts";
