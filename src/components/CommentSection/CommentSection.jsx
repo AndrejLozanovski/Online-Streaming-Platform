@@ -8,7 +8,7 @@ const CommentSection = () => {
           <img
             src={require(`../../assets/images/Users/user1.png`)}
             className="mr-20"
-            alt="Image of the user"
+            alt="User avatar"
           />
           <div className="name-comment">
             <span>Sime123</span>
@@ -22,7 +22,7 @@ const CommentSection = () => {
             <div className="likes-dislikes">
               <img
                 src={require(`../../assets/images/Icons/Community/blacklike.png`)}
-                alt="islike icon"
+                alt="Dislike icon"
               />
               <span>500</span>
             </div>
@@ -37,7 +37,7 @@ const CommentSection = () => {
           <img
             src={require(`../../assets/images/Users/user1.png`)}
             className="mr-20"
-            alt="Image of the user"
+            alt="User avatar"
           />
 
           <div className="name-comment">
@@ -51,7 +51,7 @@ const CommentSection = () => {
             <div className="likes-dislikes">
               <img
                 src={require(`../../assets/images/Icons/Community/blacklike.png`)}
-                alt="islike icon"
+                alt="Dislike icon"
               />
               <span>500</span>
             </div>
@@ -61,7 +61,7 @@ const CommentSection = () => {
           <img
             src={require(`../../assets/images/Users/user1.png`)}
             className="mr-20"
-            alt="Image of the user"
+            alt="User avatar"
           />
           <div className="name-comment">
             <span>Sime123</span>
@@ -75,7 +75,7 @@ const CommentSection = () => {
             <div className="likes-dislikes">
               <img
                 src={require(`../../assets/images/Icons/Community/blacklike.png`)}
-                alt="islike icon"
+                alt="Dislike icon"
               />
               <span>500</span>
             </div>
@@ -85,7 +85,7 @@ const CommentSection = () => {
           <img
             src={require(`../../assets/images/Users/user1.png`)}
             className="mr-20"
-            alt="Image of the user"
+            alt="User avatar"
           />
           <div className="name-comment">
             <span>Sime123</span>
@@ -99,7 +99,7 @@ const CommentSection = () => {
             <div className="likes-dislikes">
               <img
                 src={require(`../../assets/images/Icons/Community/blacklike.png`)}
-                alt="islike icon"
+                alt="Dislike icon"
               />
               <span>500</span>
             </div>

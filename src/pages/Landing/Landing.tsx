@@ -72,37 +72,37 @@ const Landing = () => {
           />
         </div>
       </section>
-      <section className={`landing-page-icons ${showIcons ? "show" : ""}`}>
+      <section className="landing-page-icons">
         <div className="landing-page-icons-content">
-          <div className="landing-page-icon-content">
+          <div className={`landing-page-icon-content ${showIcons ? "animate-icon icon-1" : ""}`}>
             <img
               src={require(`../../assets/images/Icons/LandingPage/icon1.png`)}
               alt="streaming icon"
             />
             <p>Streaming Platform</p>
           </div>
-          <div className="landing-page-icon-content">
+          <div className={`landing-page-icon-content ${showIcons ? "animate-icon icon-2" : ""}`}>
             <img
               src={require(`../../assets/images/Icons/LandingPage/icon2.png`)}
               alt="community icon"
             />
             <p>Community hub for artists</p>
           </div>
-          <div className="landing-page-icon-content">
+          <div className={`landing-page-icon-content ${showIcons ? "animate-icon icon-3" : ""}`}>
             <img
               src={require(`../../assets/images/Icons/LandingPage/icon3.png`)}
               alt="culture icon"
             />
             <p>Platform for sharing culture</p>
           </div>
-          <div className="landing-page-icon-content">
+          <div className={`landing-page-icon-content ${showIcons ? "animate-icon icon-4" : ""}`}>
             <img
               src={require(`../../assets/images/Icons/LandingPage/icon4.png`)}
               alt="business icon"
             />
             <p>Social business model</p>
           </div>
-          <div className="landing-page-icon-content">
+          <div className={`landing-page-icon-content ${showIcons ? "animate-icon icon-5" : ""}`}>
             <img
               src={require(`../../assets/images/Icons/LandingPage/icon5.png`)}
               alt="support icon"

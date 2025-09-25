@@ -3,24 +3,27 @@ import Video from "../../assets/test.mp4";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const comments = [
+const initialComments = [
   {
     id: "124",
     userId: "11111",
     time: 10,
     text: " hehe",
+    username: "Natasha"
   },
   {
     id: "1243",
     userId: "111131",
     time: 20,
     text: "hmmm interesting",
+    username: "Alex"
   },
   {
-    id: "1243",
+    id: "1244",
     userId: "111131",
     time: 19,
     text: "WOWWW",
+    username: "Maria"
   },
 ];
 
@@ -31,6 +34,8 @@ export const VideoPlayer = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [showComments, setShowComments] = useState(false);
+  const [comments, setComments] = useState(initialComments);
+  const [newComment, setNewComment] = useState("");
   const navigate = useNavigate();
 
   const handleMute = () => {
@@ -90,6 +95,26 @@ export const VideoPlayer = () => {
   }, []);
 
   const progressBarWidth = duration ? `${(currentTime / duration) * 100}%` : "0%";
+
+  const handleAddComment = () => {
+    if (newComment.trim()) {
+      const comment = {
+        id: Date.now().toString(),
+        userId: "currentUser",
+        time: Math.floor(currentTime),
+        text: newComment.trim(),
+        username: "You"
+      };
+      setComments(prevComments => [...prevComments, comment]);
+      setNewComment("");
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleAddComment();
+    }
+  };
 
   return (
     <div>
@@ -181,7 +206,7 @@ export const VideoPlayer = () => {
                 >
                   <div className="user">
                     <img src={require("../../assets/images/Users/user6.png")} alt="user image" />
-                    <p>Natasha:</p>
+                    <p>{comment.username}:</p>
                   </div>
                   {comment.text}
                 </div>
@@ -189,10 +214,18 @@ export const VideoPlayer = () => {
             })}
           {showComments && !videoIsPlaying && (
             <div className="add-comment">
-              <input type="text" placeholder="Leave a comment" />
+              <input
+                type="text"
+                placeholder="Leave a comment"
+                value={newComment}
+                onChange={(e) => setNewComment(e.target.value)}
+                onKeyPress={handleKeyPress}
+              />
               <img
                 src={require("../../assets/images/Icons/Homepage/typcn_plus.png")}
-                alt="Add image"
+                alt="Add comment"
+                onClick={handleAddComment}
+                style={{ cursor: "pointer" }}
               />
             </div>
           )}

@@ -1,16 +1,32 @@
-import React, { useState } from "react";
+import  { useState, useEffect } from "react";
 import "../StepTwo/StepTwo.css";
 import { Link } from "react-router-dom";
+import { useRegistration } from "../../context/RegistrationContext";
 
 const StepTwo = () => {
+  const { getStepData, updateStepData } = useRegistration();
   const [selectedInterests, setSelectedInterests] = useState([]);
 
-  const handleInterestClick = (interest) => {
-    if (selectedInterests.includes(interest)) {
-      setSelectedInterests(selectedInterests.filter((item) => item !== interest));
-    } else {
-      setSelectedInterests([...selectedInterests, interest]);
+  useEffect(() => {
+    const stepData = getStepData('step2');
+    if (stepData.interests && stepData.interests.length > 0) {
+      setSelectedInterests(stepData.interests);
     }
+  }, [getStepData]);
+
+  const handleInterestClick = (interest) => {
+    let newInterests;
+    if (selectedInterests.includes(interest)) {
+      newInterests = selectedInterests.filter((item) => item !== interest);
+    } else {
+      newInterests = [...selectedInterests, interest];
+    }
+    
+    setSelectedInterests(newInterests);
+    
+    updateStepData('step2', {
+      interests: newInterests
+    });
   };
 
   return (
@@ -88,7 +104,14 @@ const StepTwo = () => {
             </Link>
 
             <Link to={"/stepthree"} style={{ textDecoration: "none" }}>
-              <button className="sign-up-navigation">
+              <button
+                className="sign-up-navigation"
+                disabled={selectedInterests.length === 0}
+                style={{
+                  opacity: selectedInterests.length === 0 ? 0.5 : 1,
+                  cursor: selectedInterests.length === 0 ? 'not-allowed' : 'pointer'
+                }}
+              >
                 <span>Next</span>
                 <img
                   src={require(`../../assets/images/Icons/SignIn/fluent_arrow-right.png`)}

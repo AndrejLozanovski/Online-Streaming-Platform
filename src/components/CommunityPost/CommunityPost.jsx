@@ -8,7 +8,7 @@ const CommunityPost = () => {
           <img
             src={require(`../../assets/images/Users/user1.png`)}
             className="mr-20"
-            alt="Image of the user"
+            alt="User avatar"
           />
           <p>Comment text</p>
           <div className="like-dislike">
@@ -19,7 +19,7 @@ const CommunityPost = () => {
             <div className="likes-dislikes">
               <img
                 src={require(`../../assets/images/Icons/Community/dislike.png`)}
-                alt="islike icon"
+                alt="Dislike icon"
               />
               <span>500</span>
             </div>

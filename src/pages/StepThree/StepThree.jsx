@@ -1,12 +1,25 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import "../StepThree/StepThree.css";
 import { Link } from "react-router-dom";
+import { useRegistration } from "../../context/RegistrationContext";
 
 const StepThree = () => {
+  const { getStepData, updateStepData } = useRegistration();
   const [selectedEngagement, setSelectedEngagement] = useState("");
+
+  useEffect(() => {
+    const stepData = getStepData('step3');
+    if (stepData.engagement) {
+      setSelectedEngagement(stepData.engagement);
+    }
+  }, [getStepData]);
 
   const handleEngagementClick = (engagement) => {
     setSelectedEngagement(engagement);
+    
+    updateStepData('step3', {
+      engagement: engagement
+    });
   };
 
   return (
@@ -55,7 +68,14 @@ const StepThree = () => {
             </Link>
 
             <Link to={"/stepfour"} style={{ textDecoration: "none" }}>
-              <button className="sign-up-navigation">
+              <button
+                className="sign-up-navigation"
+                disabled={!selectedEngagement}
+                style={{
+                  opacity: !selectedEngagement ? 0.5 : 1,
+                  cursor: !selectedEngagement ? 'not-allowed' : 'pointer'
+                }}
+              >
                 <span>Next</span>
                 <img
                   src={require(`../../assets/images/Icons/SignIn/fluent_arrow-right.png`)}

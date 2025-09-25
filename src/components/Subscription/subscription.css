@@ -84,3 +84,44 @@
   color: white;
   text-decoration: none;
 }
+
+.sub-card.selected {
+  border: 2px solid #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+  transform: scale(1.02); 
+  transition: all 0.3s ease;
+}
+
+.sub-card {
+  transition: all 0.3s ease;
+}
+
+.sub-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sub-card.selected .sub-card-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.sub-card.selected::after {
+  content: "✓";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #28a745;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.sub-card {
+  position: relative;
+}

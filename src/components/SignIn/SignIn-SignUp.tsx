@@ -2,33 +2,53 @@ import React, { useState } from "react";
 import "../SignIn/SignInSignUp.css";
 import { useUserStore } from "../../stores/user-store";
 import { signInWithGooglePopup } from "../../lib/firebase";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useRegistration } from "../../context/RegistrationContext";
 
-const DUMMY_USER = {
-  email: "example@gmail.com",
-  bio: "",
-  user_type: "USER",
-  fullname: "Jhon Doe",
-  username: "jhonDoe",
-  interests: [],
-  tutorial: false,
-  subscription_type: "FREE",
-  cultures: [],
-  favoriteCategories: [],
-  favoriteMovies: ["123", "244", "333"],
-};
+
 
 const SignIn = () => {
   const setUser = useUserStore((state) => state.setUser);
+  const { updateStepData } = useRegistration();
+  const navigate = useNavigate();
   const [isSignUp, setIsSignUp] = useState(false);
+
+  const [loginUsername, setLoginUsername] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const [loginError, setLoginError] = useState("");
 
   const handleToggleForm = () => {
     setIsSignUp(!isSignUp);
   };
 
-  const handleLogin = () => {
-    setUser(DUMMY_USER);
-    localStorage.setItem("user", JSON.stringify(DUMMY_USER));
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoginError("");
+
+    const registeredUsers = JSON.parse(localStorage.getItem("registeredUsers") || "[]");
+
+    const user = registeredUsers.find((u: any) => u.username === loginUsername);
+
+    if (!user) {
+      setLoginError("User not found. Please check your username.");
+      return;
+    }
+
+    if (user.password !== loginPassword) {
+      setLoginError("Incorrect password. Please try again.");
+      return;
+    }
+
+    const userData = {
+      username: user.username,
+      email: user.email,
+      bio: user.bio,
+      profileImage: user.profileImage,
+      userType: user.userType || 'user'
+    };
+
+    setUser(userData);
+    navigate('/');
   };
 
   const handleGoogleLogin = async () => {
@@ -96,20 +116,37 @@ const SignIn = () => {
                   <span className="divider-text">or</span>
                   <div className="line"></div>
                 </div>
-                <form>
-                  <input type="text" placeholder="Email address" />
-                  <input type="password" placeholder="Password" />
+                <form onSubmit={(e) => e.preventDefault()}>
                   <Link to={"/stepone"} style={{ textDecoration: "none" }}>
-                    <button className="mb-20">Register</button>
+                    <button className="mb-20">
+                      Register
+                    </button>
                   </Link>
                 </form>
               </>
             ) : (
               <>
-                <form>
-                  <input type="text" placeholder="Email address" />
-                  <input type="password" placeholder="Password" />
-                  <button onClick={handleLogin}>Log in</button>
+                <form onSubmit={handleLogin}>
+                  <input
+                    type="text"
+                    placeholder="Username"
+                    value={loginUsername}
+                    onChange={(e) => setLoginUsername(e.target.value)}
+                    required
+                  />
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    value={loginPassword}
+                    onChange={(e) => setLoginPassword(e.target.value)}
+                    required
+                  />
+                  {loginError && (
+                    <p style={{ color: '#ff6b6b', fontSize: '14px', margin: '5px 0' }}>
+                      {loginError}
+                    </p>
+                  )}
+                  <button type="submit">Log in</button>
                 </form>
                 <div className="divider-container">
                   <div className="line"></div>

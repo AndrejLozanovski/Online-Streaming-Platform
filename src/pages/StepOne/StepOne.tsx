@@ -1,19 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../StepOne/StepOne.css";
 import { Link } from "react-router-dom";
+import { useRegistration } from "../../context/RegistrationContext";
 
 const StepOne = () => {
+  const { getStepData, updateStepData } = useRegistration();
   const [isSelectedArtist, setIsSelectedArtist] = useState(false);
   const [isSelectedViewer, setIsSelectedViewer] = useState(false);
+
+  useEffect(() => {
+    const stepData = getStepData('step1');
+    if (stepData.userType === 'artist') {
+      setIsSelectedArtist(true);
+    } else if (stepData.userType === 'viewer') {
+      setIsSelectedViewer(true);
+    }
+  }, [getStepData]);
 
   const handleArtistClick = () => {
     setIsSelectedArtist(!isSelectedArtist);
     setIsSelectedViewer(false);
+
+    updateStepData('step1', {
+      userType: !isSelectedArtist ? 'artist' : null
+    });
   };
 
   const handleViewerClick = () => {
     setIsSelectedViewer(!isSelectedViewer);
     setIsSelectedArtist(false);
+
+    updateStepData('step1', {
+      userType: !isSelectedViewer ? 'viewer' : null
+    });
   };
 
   return (
@@ -70,7 +89,14 @@ const StepOne = () => {
               <span>Back</span>
             </button>
             <Link to={"/steptwo"} style={{ textDecoration: "none" }}>
-              <button className="sign-up-navigation">
+              <button
+                className="sign-up-navigation"
+                disabled={!isSelectedArtist && !isSelectedViewer}
+                style={{
+                  opacity: (!isSelectedArtist && !isSelectedViewer) ? 0.5 : 1,
+                  cursor: (!isSelectedArtist && !isSelectedViewer) ? 'not-allowed' : 'pointer'
+                }}
+              >
                 <span>Next</span>
                 <img
                   src={require(`../../assets/images/Icons/SignIn/fluent_arrow-right.png`)}

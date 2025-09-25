@@ -1,5 +1,8 @@
 .movies-room {
   background-color: rgba(11, 21, 27, 1);
+  min-height: 100vh;
+  color: white;
+  padding-bottom: 40px;
 }
 
 .title-and-categories {
@@ -23,7 +26,6 @@
   padding: 8px 5px;
   border-radius: 10px;
   border: 0.5px solid rgba(217, 217, 217, 1);
-  opacity: 0px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -31,10 +33,38 @@
   top: 6%;
   right: 9%;
   color: rgba(217, 217, 217, 1);
+  cursor: pointer;
 }
 
 .categories-dropdown img {
   width: 10px;
+  transition: transform 0.3s ease;
+}
+
+.categories-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 150px;
+  background-color: rgba(21, 31, 37, 1);
+  border-radius: 10px;
+  margin-top: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  overflow: hidden;
+  border: 0.5px solid rgba(217, 217, 217, 0.5);
+}
+
+.category-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: rgba(217, 217, 217, 1);
+  text-align: center;
+}
+
+.category-item:hover {
+  background-color: rgba(60, 122, 157, 0.3);
 }
 
 .movies-room .movies-room-movies-genres-section {
@@ -49,4 +79,5 @@
   width: 20%;
   margin-left: 40%;
   margin-top: 5%;
+  cursor: pointer;
 }

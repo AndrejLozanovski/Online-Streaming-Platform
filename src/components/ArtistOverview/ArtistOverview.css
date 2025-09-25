@@ -1,112 +1,1019 @@
-.artist-overview-pop-up {
-  background: rgba(21, 21, 21, 1);
-  box-shadow: 0px -136px 83.8px 0px rgba(0, 0, 0, 0.13);
-  width: 70%;
-  height: 100%;
-  margin: 0 auto;
-  border-radius: 25px 25px 0px 0px;
-  color: white;
-  position: absolute;
-  left: 50%;
-  top: 5%;
-  transform: translate(-50%, 0%);
-  overflow-x: hidden;
-}
-
-.artist-overview-pop-up::-webkit-scrollbar {
-  display: none;
-}
-
-.artist-overview-pop-up {
-  -ms-overflow-style: none;
-}
-
-.artist-overview-pop-up {
-  scrollbar-width: none;
-}
-
-.artist-overview-pop-up .artist-overview-banner {
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 50vh;
-  position: relative;
-}
-
-.artist-overview-pop-up .artist-overview-banner .artist-overview-banner-content {
-  position: absolute;
+/* Modal Overlay */
+.artist-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 30, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1000;
   display: flex;
-  width: 90%;
-  left: 5%;
-  top: 5%;
-  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: backdropFadeIn 0.5s ease-out;
 }
 
-.artist-overview-pop-up .artist-overview-banner .artist-overview-banner-content img {
-  border-radius: 57px;
-  border: 1px solid rgba(255, 255, 255, 0.63);
-  margin-right: 3%;
+@keyframes backdropFadeIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(20px);
+  }
 }
 
-.artist-overview-pop-up .artist-overview-banner .artist-overview-banner-content .artist-bio {
-  margin-top: 5%;
-}
-
-.artist-overview-pop-up .artist-overview-banner .artist-overview-banner-content .artist-bio h1 {
-  font-size: 50px;
-}
-
-.artist-overview-pop-up .artist-overview-banner .artist-overview-banner-content .artist-bio button {
-  padding: 15px 8px;
-  border-radius: 10px;
-  border: 0.5px solid rgba(217, 217, 217, 1);
-  opacity: 0px;
-  background: rgba(81, 156, 60, 1);
+/* Modal Content */
+.artist-modal-content {
+  background: linear-gradient(145deg, rgba(11, 21, 27, 0.98) 0%, rgba(27, 31, 35, 0.95) 100%);
+  border-radius: 32px;
+  width: min(95vw, 1400px);
+  max-height: 95vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
   color: white;
-  width: 30%;
-  font-size: 20px;
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: modalSlideIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-sizing: border-box;
 }
 
-.artist-overview-pop-up .artist-overview-banner .artist-overview-close {
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.artist-close-btn {
   position: absolute;
   right: 5%;
   top: 7%;
   padding: 12px;
-  background: rgba(88, 88, 88, 1);
-  border-radius: 50px;
+  background: rgba(0, 0, 0, 0.8);
   cursor: pointer;
+  z-index: 15;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-.artist-overview-pop-up .artist-overview-banner .artist-overview-banner-content p {
-  font-size: 20px;
+.artist-close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.artist-close-btn img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.artist-overview-modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.artist-overview-modal-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.artist-overview-modal-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.artist-overview-modal-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.artist-overview-banner {
+  background: linear-gradient(135deg, rgba(11, 21, 27, 0.9) 0%, rgba(27, 31, 35, 0.95) 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+  min-height: 400px;
+  position: relative;
+  border-radius: 32px 32px 0 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.artist-overview-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(81, 156, 60, 0.1) 0%,
+    rgba(11, 21, 27, 0.8) 50%,
+    rgba(27, 31, 35, 0.9) 100%
+  );
+  z-index: 1;
+}
+
+.artist-overview-banner .artist-overview-banner-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 900px;
+  gap: 40px;
+  padding: 40px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.artist-overview-banner .artist-overview-banner-content img {
+  border-radius: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 0 2px rgba(81, 156, 60, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.artist-overview-banner .artist-overview-banner-content img:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    0 0 0 3px rgba(81, 156, 60, 0.5);
+}
+
+.artist-overview-banner .artist-overview-banner-content .artist-bio {
+  flex: 1;
+  text-align: left;
+  color: white;
+}
+
+.artist-overview-banner .artist-overview-banner-content .artist-bio h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.artist-overview-banner .artist-overview-banner-content .artist-bio p {
+  font-size: 18px;
   font-weight: 400;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.artist-overview-pop-up .artist-overview-banner .artist-overview-banner-content p {
-  margin: 30px 0px;
+.artist-overview-banner .artist-overview-banner-content .artist-bio button {
+  padding: 16px 32px;
+  border-radius: 12px;
+  border: 2px solid rgba(81, 156, 60, 0.8);
+  background: linear-gradient(135deg, rgba(81, 156, 60, 0.9) 0%, rgba(69, 139, 51, 0.9) 100%);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 8px 25px rgba(81, 156, 60, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.artist-overview-pop-up .artist-overview-banner .artist-overview-banner-content p a {
+.artist-overview-banner .artist-overview-banner-content .artist-bio button:hover {
+  background: linear-gradient(135deg, rgba(69, 139, 51, 1) 0%, rgba(81, 156, 60, 1) 100%);
+  transform: translateY(-3px);
+  box-shadow:
+    0 12px 35px rgba(81, 156, 60, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: rgba(81, 156, 60, 1);
+}
+
+.artist-overview-close {
+  position: absolute;
+  right: 3%;
+  top: 3%;
+  padding: 16px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(30, 30, 30, 0.9) 100%);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  z-index: 10;
+}
+
+.artist-overview-close:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.1) 100%);
+  transform: scale(1.1) rotate(90deg);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.artist-overview-close img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+}
+
+.artist-overview-close:hover img {
+  filter: brightness(0) invert(0.8);
+}
+
+.artist-overview-banner .artist-overview-banner-content p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.artist-overview-banner .artist-overview-banner-content p a {
   text-decoration: none;
   font-style: italic;
   color: rgba(81, 156, 60, 1);
+  font-weight: 500;
 }
 
 .artist-overview-content {
-  position: absolute;
-  left: 5%;
+  padding: 50px;
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, rgba(11, 21, 27, 0.95) 0%, rgba(27, 31, 35, 0.95) 100%);
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .artist-overview-content .overview-comments {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
+  width: 100%;
+  max-width: 1000px;
 }
 
 .artist-overview-content .artist-awards {
-  margin: 50px 0px;
-  font-size: 20px;
-  width: 90%;
+  margin: 40px 0;
+  width: 100%;
+  max-width: 1000px;
+  padding: 35px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.artist-overview-content .artist-awards::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #81c63c 0%, #9fdf5a 50%, #81c63c 100%);
+  border-radius: 20px 20px 0 0;
+}
+
+.artist-overview-content .artist-awards h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 1;
+}
+
+.artist-overview-content .artist-awards ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.artist-overview-content .artist-awards li {
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  line-height: 1.7;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 25px;
+}
+
+.artist-overview-content .artist-awards li::before {
+  content: '🏆';
+  position: absolute;
+  left: 0;
+  top: 18px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.artist-overview-content .artist-awards li:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  margin: 2px 0;
+  padding-left: 30px;
+  transform: translateX(5px);
+}
+
+.artist-overview-content .artist-awards li:last-child {
+  border-bottom: none;
 }
 
 .artist-overview-content .artist-awards a {
+  color: rgba(81, 156, 60, 1);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.artist-overview-content .artist-awards a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #81c63c, #9fdf5a);
+  transition: width 0.3s ease;
+}
+
+.artist-overview-content .artist-awards a:hover {
+  color: rgba(159, 223, 90, 1);
+}
+
+.artist-overview-content .artist-awards a:hover::after {
+  width: 100%;
+}
+
+.artist-overview-content .movies-slider {
+  margin: 40px 0;
+  padding: 30px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 1000px;
+  position: relative;
+  overflow: hidden;
+}
+
+.artist-overview-content .movies-slider::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #81c63c 0%, #9fdf5a 50%, #81c63c 100%);
+  border-radius: 20px 20px 0 0;
+}
+
+.artist-overview-content .movies-slider .movies-carousel {
+  position: relative;
+  z-index: 1;
+}
+
+.artist-overview-content .movies-slider .title h2 {
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.artist-overview-content .movies-slider .movies-wrapper {
+  position: relative;
+}
+
+.artist-overview-content .movies-slider .scroll-btn {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(30, 30, 30, 0.9) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
   color: white;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.artist-overview-content .movies-slider .scroll-btn:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.1) 100%);
+  transform: scale(1.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.artist-overview-content .movies-slider .movie-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+.artist-overview-content .movies-slider .movie-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 0 2px rgba(81, 156, 60, 0.3);
+  border-color: rgba(81, 156, 60, 0.5);
+}
+
+/* Custom Movies Slider for Artist */
+.custom-movies-slider {
+  width: 100%;
+  position: relative;
+}
+
+.custom-movies-slider .movies-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.custom-movies-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.custom-movies-container::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-movies-container .movie-card {
+  flex-shrink: 0;
+  width: 200px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.custom-movies-container .movie-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 0 3px rgba(81, 156, 60, 0.4);
+  border-color: rgba(81, 156, 60, 0.5);
+}
+
+.custom-movies-container .movie-card-image {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+}
+
+.custom-movies-container .movie-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.custom-movies-container .movie-card:hover .movie-card-image img {
+  transform: scale(1.1);
+}
+
+.custom-movies-container .movie-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+  padding: 20px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.custom-movies-container .movie-card:hover .movie-card-overlay {
+  transform: translateY(0);
+}
+
+.custom-movies-container .movie-card-info h3 {
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.custom-movies-container .movie-year {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.custom-movies-container .movie-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.custom-movies-container .movie-rating span {
+  color: #ffd700;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.custom-movies-container .movie-card-details {
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.custom-movies-container .movie-card-details h4 {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.custom-movies-container .movie-genre {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Scroll Buttons for Custom Slider */
+.custom-movies-slider .scroll-btn {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(30, 30, 30, 0.9) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.custom-movies-slider .scroll-btn:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.1) 100%);
+  transform: scale(1.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.custom-movies-slider .scroll-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke: white;
+  transition: stroke 0.3s ease;
+}
+
+.custom-movies-slider .scroll-btn:hover svg {
+  stroke: rgba(255, 255, 255, 0.9);
+}
+
+/* Hero Section */
+.artist-hero-section {
+  position: relative;
+  min-height: 60vh;
+  background: linear-gradient(135deg, rgba(11, 21, 27, 0.9) 0%, rgba(27, 31, 35, 0.95) 100%);
+  border-radius: 32px 32px 0 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.artist-hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(81, 156, 60, 0.08) 0%,
+    rgba(11, 21, 27, 0.85) 50%,
+    rgba(27, 31, 35, 0.95) 100%
+  );
+  z-index: 1;
+}
+
+.artist-hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  gap: 60px;
+  padding: 60px 40px;
+  box-sizing: border-box;
+}
+
+.artist-profile {
+  flex-shrink: 0;
+}
+
+.artist-image-container {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.artist-profile-image {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.artist-image-container:hover .artist-profile-image {
+  transform: scale(1.05);
+}
+
+.artist-info {
+  flex: 1;
+  color: white;
+  max-width: 600px;
+}
+
+.artist-header {
+  margin-bottom: 30px;
+}
+
+.artist-name {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 900;
+  margin-bottom: 15px;
+  color: #ffffff;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.artist-role {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.role-badge {
+  background: linear-gradient(135deg, rgba(81, 156, 60, 0.9) 0%, rgba(69, 139, 51, 0.9) 100%);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(81, 156, 60, 0.3);
+}
+
+.artist-bio {
+  margin-bottom: 30px;
+}
+
+.bio-text {
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin-bottom: 25px;
+}
+
+.artist-stats {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  text-align: center;
+  min-width: 80px;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #81c63c;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  display: block;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Content Sections */
+.artist-content-sections {
+  padding: 60px 40px;
+  background: linear-gradient(135deg, rgba(11, 21, 27, 0.95) 0%, rgba(27, 31, 35, 0.95) 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.content-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+}
+
+/* Movies Section */
+.movies-section {
+  position: relative;
+}
+
+.movies-slider-container {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.03) 100%);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 15px 45px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.movies-slider-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #81c63c 0%, #9fdf5a 50%, #81c63c 100%);
+  border-radius: 24px 24px 0 0;
+}
+
+/* Awards Section */
+.awards-section {
+  position: relative;
+}
+
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  width: 100%;
+}
+
+.award-item {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.award-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #81c63c 0%, #9fdf5a 50%, #81c63c 100%);
+  border-radius: 20px 20px 0 0;
+}
+
+.award-item:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border-color: rgba(81, 156, 60, 0.3);
+}
+
+.award-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.award-content {
+  position: relative;
+  z-index: 1;
+}
+
+.award-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.award-description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 15px;
+}
+
+.award-year {
+  font-size: 14px;
+  font-weight: 600;
+  color: #81c63c;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Biography Section */
+.bio-section {
+  position: relative;
+}
+
+.bio-content {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.03) 100%);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 15px 45px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bio-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #81c63c 0%, #9fdf5a 50%, #81c63c 100%);
+  border-radius: 24px 24px 0 0;
+}
+
+.bio-timeline {
+  position: relative;
+  z-index: 1;
+  padding-left: 30px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 40px;
+  border-left: 2px solid rgba(81, 156, 60, 0.3);
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -8px;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(135deg, #81c63c 0%, #9fdf5a 100%);
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(81, 156, 60, 0.4);
+}
+
+.timeline-content h4 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #81c63c;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.timeline-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }

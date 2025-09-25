@@ -11,22 +11,25 @@ import StepSeven from "../../pages/StepSeven/StepSeven";
 import StepEight from "../../pages/StepEight/StepEight";
 import StepNine from "../../pages/StepNine/StepNine";
 import SignUp from "../../pages/SignUp/SignUp";
+import { RegistrationProvider } from "../../context/RegistrationContext";
 
 export const NonAuthorizedRoutes = () => {
   return (
-    <Routes>
-      <Route path={"/landing"} element={<Landing />} />
-      <Route path={"/stepone"} element={<StepOne />} />
-      <Route path={"/steptwo"} element={<StepTwo />} />
-      <Route path={"/stepthree"} element={<StepThree />} />
-      <Route path={"/stepfour"} element={<StepFour />} />
-      <Route path={"/stepfive"} element={<StepFive />} />
-      <Route path={"/stepsix"} element={<StepSix />} />
-      <Route path={"/stepseven"} element={<StepSeven />} />
-      <Route path={"/stepeight"} element={<StepEight />} />
-      <Route path={"/stepnine"} element={<StepNine />} />
-      <Route path={"/signup"} element={<SignUp />} />
-      <Route path={"*"} element={<Navigate to="landing" />} />
-    </Routes>
+    <RegistrationProvider>
+      <Routes>
+        <Route path={"/landing"} element={<Landing />} />
+        <Route path={"/stepone"} element={<StepOne />} />
+        <Route path={"/steptwo"} element={<StepTwo />} />
+        <Route path={"/stepthree"} element={<StepThree />} />
+        <Route path={"/stepfour"} element={<StepFour />} />
+        <Route path={"/stepfive"} element={<StepFive />} />
+        <Route path={"/stepsix"} element={<StepSix />} />
+        <Route path={"/stepseven"} element={<StepSeven />} />
+        <Route path={"/stepeight"} element={<StepEight />} />
+        <Route path={"/stepnine"} element={<StepNine />} />
+        <Route path={"/signup"} element={<SignUp />} />
+        <Route path={"*"} element={<Navigate to="landing" />} />
+      </Routes>
+    </RegistrationProvider>
   );
 };

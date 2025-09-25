@@ -1,54 +1,137 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import CommunityComment from "../../components/CommunityCommentCard/CommunityComment";
 import Navigation from "../../components/Navigation/Navigation";
 import "../Community/Community.css";
 
 const Community = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [showAllComments, setShowAllComments] = useState(false);
+
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const commentsCount = 1247;
+  const discussionsCount = 89;
+
   return (
     <main className="community-page">
       <Navigation />
       <section className="community-comments-section">
-        <h1>Community</h1>
-        <div className="community-search-discussion-section">
-          <img
-            src={require(`../../assets/images/Icons/Community/mi_filter.png`)}
-            className="mr-20"
-            alt="Filter Icon"
-          />
-          <input type="text" name="" id="" placeholder="Search..." />
-          <button>Start a discussion</button>
+        <div className="community-header">
+          <h1>Community</h1>
+          <p className="community-subtitle">Join the conversation and share your thoughts</p>
         </div>
-        <div className="community-comments">
-          <div className="posts-rating">
-            <p>Posts</p>
-            <p>Rating</p>
+
+        <div className="community-search-discussion-section">
+          <div className="search-container">
+            <img
+              src={require(`../../assets/images/Icons/Community/mi_filter.png`)}
+              className="filter-icon"
+              alt="Filter Icon"
+            />
+            <input
+              type="text"
+              placeholder="Search discussions or comments..."
+              value={searchQuery}
+              onChange={handleSearch}
+            />
           </div>
-          <CommunityComment />
-          <CommunityComment />
-          <CommunityComment />
-          <CommunityComment />
-          <CommunityComment />
-          <CommunityComment />
-          <button>Show more</button>
+          <Link to="/start-discussion" className="start-discussion-btn">
+            <button>Start a discussion</button>
+          </Link>
+        </div>
+
+        <div className="community-stats">
+          <div className="stat-item">
+            <span className="stat-number">{commentsCount.toLocaleString()}</span>
+            <span className="stat-label">Comments</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-number">{discussionsCount}</span>
+            <span className="stat-label">Discussions</span>
+          </div>
+        </div>
+
+        <div className="community-comments">
+          <div className="comments-header">
+            <div className="posts-rating">
+              <p>Recent Posts</p>
+              <p>Rating</p>
+            </div>
+          </div>
+
+          <div className="comments-grid">
+            <CommunityComment />
+            <CommunityComment />
+            <CommunityComment />
+            {!showAllComments && (
+              <>
+                <CommunityComment />
+                <CommunityComment />
+                <CommunityComment />
+              </>
+            )}
+            {showAllComments && (
+              <>
+                <CommunityComment />
+                <CommunityComment />
+                <CommunityComment />
+                <CommunityComment />
+                <CommunityComment />
+                <CommunityComment />
+              </>
+            )}
+          </div>
+
+          {!showAllComments && (
+            <div className="show-more-container">
+              <button
+                className="show-more-btn"
+                onClick={() => setShowAllComments(true)}
+              >
+                Show more comments
+              </button>
+            </div>
+          )}
         </div>
       </section>
+
       <section className="community-badge-section">
         <div className="badge">
-          <p>
-            <img
-              src={require("../../assets/images/Icons/Community/Animated loader - ease-in.png")}
-              className="mr-20"
-              alt=""
-            />
-            Comments
-          </p>
-          <p>
-            <img
-              src={require("../../assets/images/Icons/Community/Animated loader - ease-out.png")}
-              className="mr-20"
-              alt=""
-            />
-            Discussion
-          </p>
+          <div className="badge-header">
+            <h3>Community Stats</h3>
+          </div>
+
+          <div className="stats-grid">
+            <div className="stat-card">
+              <div className="stat-icon">
+                <img
+                  src={require("../../assets/images/Icons/Community/Animated loader - ease-in.png")}
+                  alt="Comments icon"
+                />
+              </div>
+              <div className="stat-info">
+                <span className="stat-value">{commentsCount.toLocaleString()}</span>
+                <span className="stat-name">Comments</span>
+              </div>
+            </div>
+
+            <div className="stat-card">
+              <div className="stat-icon">
+                <img
+                  src={require("../../assets/images/Icons/Community/Animated loader - ease-out.png")}
+                  alt="Discussions icon"
+                />
+              </div>
+              <div className="stat-info">
+                <span className="stat-value">{discussionsCount}</span>
+                <span className="stat-name">Discussions</span>
+              </div>
+            </div>
+          </div>
+
           <div className="latest-comment">
             <small>Latest comments:</small>
             <div className="comment-box">
@@ -56,7 +139,14 @@ const Community = () => {
                 <img src={require("../../assets/images/Users/user6.png")} alt="user image" />
                 <p>Sime:</p>
               </div>
-              <span>Kolku dobra scena...</span>
+              <span>Kolku dobra scena bese vo filmo!</span>
+            </div>
+            <div className="comment-box">
+              <div className="user">
+                <img src={require("../../assets/images/Users/user2.png")} alt="user image" />
+                <p>Maria:</p>
+              </div>
+              <span>Neverovatno! Sjajna režija...</span>
             </div>
           </div>
         </div>

@@ -1,25 +1,58 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import "../StepSix/StepSix.css";
 import { Link } from "react-router-dom";
+import { useRegistration } from "../../context/RegistrationContext";
 
 const StepSix = () => {
+  const { getStepData, updateStepData } = useRegistration();
   const [selectedCultures, setSelectedCultures] = useState([]);
 
-  const handleCultureClick = (culture) => {
-    if (selectedCultures.includes(culture)) {
-      setSelectedCultures(selectedCultures.filter((item) => item !== culture));
-    } else {
-      setSelectedCultures([...selectedCultures, culture]);
+  useEffect(() => {
+    const stepData = getStepData('step6');
+    if (stepData.selectedCultures && stepData.selectedCultures.length > 0) {
+      setSelectedCultures(stepData.selectedCultures);
     }
+  }, [getStepData]);
+
+  const handleCultureClick = (culture) => {
+    let newCultures;
+    if (selectedCultures.includes(culture)) {
+      newCultures = selectedCultures.filter((item) => item !== culture);
+    } else {
+      newCultures = [...selectedCultures, culture];
+    }
+    
+    setSelectedCultures(newCultures);
+
+    updateStepData('step6', {
+      selectedCultures: newCultures
+    });
   };
+
+  const step5Data = getStepData('step5');
+  const displayName = step5Data.username || 'Nickname';
 
   return (
     <div className="sign-up-steps-bg">
       <div className="sing-up-pop-up">
         <div className="sing-up-pop-up-six-content">
           <div className="sign-up-cultures-profile-pic-nickname">
-            <img src={require(`../../assets/images/Icons/SignIn/user.jpeg`)} alt="Profile" />
-            <p>Nickname</p>
+            {step5Data.profileImage ? (
+              <img
+                src={step5Data.profileImage}
+                alt="Profile"
+                style={{
+                  width: '60px',
+                  height: '60px',
+                  borderRadius: '50%',
+                  objectFit: 'cover',
+                  border: '2px solid #ccc'
+                }}
+              />
+            ) : (
+              <img src={require(`../../assets/images/Icons/SignIn/user.jpeg`)} alt="Profile" />
+            )}
+            <p>{displayName}</p>
           </div>
           <div className="title">
             <div className="title-header">
@@ -83,7 +116,14 @@ const StepSix = () => {
             </Link>
 
             <Link to={"/stepseven"} style={{ textDecoration: "none" }}>
-              <button className="sign-up-navigation">
+              <button
+                className="sign-up-navigation"
+                disabled={selectedCultures.length === 0}
+                style={{
+                  opacity: selectedCultures.length === 0 ? 0.5 : 1,
+                  cursor: selectedCultures.length === 0 ? 'not-allowed' : 'pointer'
+                }}
+              >
                 <span>Next</span>
                 <img
                   src={require(`../../assets/images/Icons/SignIn/fluent_arrow-right.png`)}

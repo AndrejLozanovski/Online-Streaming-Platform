@@ -1,25 +1,58 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import "../StepSeven/StepSeven.css";
 import { Link } from "react-router-dom";
+import { useRegistration } from "../../context/RegistrationContext";
 
 const StepSeven = () => {
+  const { getStepData, updateStepData } = useRegistration();
   const [selectedRecommendations, setSelectedRecommendations] = useState([]);
 
-  const handleRecommendationClick = (recommendation) => {
-    if (selectedRecommendations.includes(recommendation)) {
-      setSelectedRecommendations(selectedRecommendations.filter((item) => item !== recommendation));
-    } else {
-      setSelectedRecommendations([...selectedRecommendations, recommendation]);
+  useEffect(() => {
+    const stepData = getStepData('step7');
+    if (stepData.contentRecommendations && stepData.contentRecommendations.length > 0) {
+      setSelectedRecommendations(stepData.contentRecommendations);
     }
+  }, [getStepData]);
+
+  const handleRecommendationClick = (recommendation) => {
+    let newRecommendations;
+    if (selectedRecommendations.includes(recommendation)) {
+      newRecommendations = selectedRecommendations.filter((item) => item !== recommendation);
+    } else {
+      newRecommendations = [...selectedRecommendations, recommendation];
+    }
+    
+    setSelectedRecommendations(newRecommendations);
+    
+    updateStepData('step7', {
+      contentRecommendations: newRecommendations
+    });
   };
+
+  const step5Data = getStepData('step5');
+  const displayName = step5Data.username || 'Nickname';
 
   return (
     <div className="sign-up-steps-bg">
       <div className="sing-up-pop-up">
         <div className="sing-up-pop-up-seven-content">
           <div className="sign-up-recommendations-profile-pic-nickname">
-            <img src={require(`../../assets/images/Icons/SignIn/user.jpeg`)} alt="Profile" />
-            <p>Nickname</p>
+            {step5Data.profileImage ? (
+              <img
+                src={step5Data.profileImage}
+                alt="Profile"
+                style={{
+                  width: '60px',
+                  height: '60px',
+                  borderRadius: '50%',
+                  objectFit: 'cover',
+                  border: '2px solid #ccc'
+                }}
+              />
+            ) : (
+              <img src={require(`../../assets/images/Icons/SignIn/user.jpeg`)} alt="Profile" />
+            )}
+            <p>{displayName}</p>
           </div>
           <div className="title">
             <div className="title-header">
@@ -118,7 +151,14 @@ const StepSeven = () => {
             </Link>
 
             <Link to={"/stepeight"} style={{ textDecoration: "none" }}>
-              <button className="sign-up-navigation">
+              <button
+                className="sign-up-navigation"
+                disabled={selectedRecommendations.length === 0}
+                style={{
+                  opacity: selectedRecommendations.length === 0 ? 0.5 : 1,
+                  cursor: selectedRecommendations.length === 0 ? 'not-allowed' : 'pointer'
+                }}
+              >
                 <span>Next</span>
                 <img
                   src={require(`../../assets/images/Icons/SignIn/fluent_arrow-right.png`)}

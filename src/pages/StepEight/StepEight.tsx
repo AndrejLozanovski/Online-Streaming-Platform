@@ -1,22 +1,58 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../StepEight/StepEight.css";
 import { Link } from "react-router-dom";
+import { useRegistration } from "../../context/RegistrationContext";
 
-const StepEight = () => {
-  const [emailNotifications, setEmailNotifications] = useState(false);
-  const [appNotifications, setAppNotifications] = useState(false);
-  const [noNotifications, setNoNotifications] = useState(false);
+const StepEight: React.FC = () => {
+  const { getStepData, updateStepData } = useRegistration();
+  const [emailNotifications, setEmailNotifications] = useState<boolean>(false);
+  const [appNotifications, setAppNotifications] = useState<boolean>(false);
+  const [noNotifications, setNoNotifications] = useState<boolean>(false);
 
-  const handleEmailClick = () => {
-    setEmailNotifications(!emailNotifications);
+  useEffect(() => {
+    const stepData = getStepData('step8');
+    setEmailNotifications(stepData.emailNotifications || false);
+    setAppNotifications(stepData.appNotifications || false);
+    setNoNotifications(stepData.noNotifications || false);
+  }, [getStepData]);
+
+  const updateNotificationPreferences = (email: boolean, app: boolean, none: boolean): void => {
+    setEmailNotifications(email);
+    setAppNotifications(app);
+    setNoNotifications(none);
+    
+    updateStepData('step8', {
+      emailNotifications: email,
+      appNotifications: app,
+      noNotifications: none
+    });
   };
 
-  const handleAppClick = () => {
-    setAppNotifications(!appNotifications);
+  const handleEmailClick = (): void => {
+    const newEmailState = !emailNotifications;
+    updateNotificationPreferences(
+      newEmailState,
+      appNotifications,
+      newEmailState ? false : noNotifications
+    );
   };
 
-  const handleNoNotificationsClick = () => {
-    setNoNotifications(!noNotifications);
+  const handleAppClick = (): void => {
+    const newAppState = !appNotifications;
+    updateNotificationPreferences(
+      emailNotifications,
+      newAppState,
+      newAppState ? false : noNotifications
+    );
+  };
+
+  const handleNoNotificationsClick = (): void => {
+    const newNoNotificationsState = !noNotifications;
+    updateNotificationPreferences(
+      newNoNotificationsState ? false : emailNotifications,
+      newNoNotificationsState ? false : appNotifications,
+      newNoNotificationsState
+    );
   };
 
   return (

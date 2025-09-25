@@ -1,9 +1,39 @@
 import { Link } from "react-router-dom";
 import MoviesSlider from "../../components/MoviesSlider/MoviesSlider";
 import Navigation from "../../components/Navigation/Navigation";
+import { useUserStore } from "../../stores/user-store";
+import MovieOverview from "../../components/MovieOverview/MovieOverview";
+import ArtistOverview from "../../components/ArtistOverview/ArtistOverview";
+import { useState } from "react";
 import "../UserProfile/UserProfile.css";
 
 const UserProfile = () => {
+  const user = useUserStore((state) => state.user);
+
+  const [selectedMovieId, setSelectedMovieId] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isArtistModalOpen, setIsArtistModalOpen] = useState(false);
+
+  const handleMovieClick = (movieId) => {
+    setSelectedMovieId(movieId);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedMovieId(null);
+  };
+
+  const handleArtistClick = () => {
+    setIsModalOpen(false);
+    setSelectedMovieId(null);
+    setIsArtistModalOpen(true);
+  };
+
+  const handleCloseArtistModal = () => {
+    setIsArtistModalOpen(false);
+  };
+
   return (
     <main className="user-profile-page">
       <Navigation />
@@ -32,18 +62,31 @@ const UserProfile = () => {
       <section className="user-profile-page-content">
         <div className="user-profile-page-user-info">
           <div className="user-info">
-            <img
-              src={require(`../../assets/images/Icons/SignIn/user.jpeg`)}
-              className="profile-picture"
-              alt=""
-            />
+            {user?.profileImage ? (
+              <img
+                src={user.profileImage}
+                className="profile-picture"
+                alt="Profile"
+                style={{
+                  width: '120px',
+                  height: '120px',
+                  borderRadius: '50%',
+                  objectFit: 'cover',
+                  border: '4px solid #fff'
+                }}
+              />
+            ) : (
+              <img
+                src={require(`../../assets/images/Icons/SignIn/user.jpeg`)}
+                className="profile-picture"
+                alt=""
+              />
+            )}
             <div className="user-name">
-              <h1>Jovan Ivanovski</h1>
-              <span>Movie Enjoyer</span>
+              <h1>{user?.username || 'User'}</h1>
+              <span>{user?.userType === 'artist' ? 'Artist' : 'Movie Enjoyer'}</span>
               <p>
-                Lorem ipsum dolor sit amet consectetur. At sed dui faucibus dictum. Condimentum
-                auctor scelerisque nunc nam. Mauris vel commodo hendrerit mattis varius risus massa
-                vitae velit. Aenean urna euismod auctor tortor bibendum nunc sed.
+                {user?.bio || 'Lorem ipsum dolor sit amet consectetur. At sed dui faucibus dictum. Condimentum auctor scelerisque nunc nam. Mauris vel commodo hendrerit mattis varius risus massa vitae velit. Aenean urna euismod auctor tortor bibendum nunc sed.'}
               </p>
             </div>
 
@@ -81,11 +124,24 @@ const UserProfile = () => {
         </div>
         <div className="user-profile-page-user-activities">
           <div className="user-comments">
-            <h2>Comments by Jovan:</h2>
+            <h2>Comments by {user?.username || 'User'}:</h2>
             <div className="user-profile-comments">
               <div className="picture-name">
-                <img src={require(`../../assets/images/Icons/SignIn/user.jpeg`)} alt="User" />
-                <p>Jovan:</p>
+                {user?.profileImage ? (
+                  <img
+                    src={user.profileImage}
+                    alt="User"
+                    style={{
+                      width: '40px',
+                      height: '40px',
+                      borderRadius: '50%',
+                      objectFit: 'cover'
+                    }}
+                  />
+                ) : (
+                  <img src={require(`../../assets/images/Icons/SignIn/user.jpeg`)} alt="User" />
+                )}
+                <p>{user?.username || 'User'}:</p>
               </div>
               <p>
                 Lorem ipsum dolor sit amet consectetur. Aliquam massa cursus ac morbi nisl lectus
@@ -94,15 +150,40 @@ const UserProfile = () => {
             </div>
             <div className="user-profile-comments">
               <div className="picture-name">
-                <img src={require(`../../assets/images/Icons/SignIn/user.jpeg`)} alt="User" />
-                <p>Jovan:</p>
+                {user?.profileImage ? (
+                  <img
+                    src={user.profileImage}
+                    alt="User"
+                    style={{
+                      width: '40px',
+                      height: '40px',
+                      borderRadius: '50%',
+                      objectFit: 'cover'
+                    }}
+                  />
+                ) : (
+                  <img src={require(`../../assets/images/Icons/SignIn/user.jpeg`)} alt="User" />
+                )}
+                <p>{user?.username || 'User'}:</p>
               </div>
               <p>Lorem ipsum dolor sit amet consectetur.</p>
             </div>
           </div>
-          <MoviesSlider />
+          <MoviesSlider onMovieClick={handleMovieClick} />
         </div>
       </section>
+
+      {isModalOpen && selectedMovieId && (
+        <MovieOverview
+          movieId={selectedMovieId}
+          onClose={handleCloseModal}
+          onArtistClick={handleArtistClick}
+        />
+      )}
+
+      {isArtistModalOpen && (
+        <ArtistOverview onClose={handleCloseArtistModal} />
+      )}
     </main>
   );
 };

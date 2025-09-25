@@ -4,6 +4,9 @@ import Navigation from "../../components/Navigation/Navigation";
 import MoviesBanner from "../../components/MoviesBanner/MoviesBanner";
 import MoviesSlider from "../../components/MoviesSlider/MoviesSlider";
 import Footer from "../../components/Footer/Footer";
+import { useState } from "react";
+import MovieOverview from "../../components/MovieOverview/MovieOverview";
+import ArtistOverview from "../../components/ArtistOverview/ArtistOverview";
 
 const Homepage = () => {
   const { user, setUser } = useUserStore((state) => ({
@@ -11,9 +14,28 @@ const Homepage = () => {
     setUser: state.setUser,
   }));
 
-  const handleLogout = () => {
-    localStorage.removeItem("user");
-    setUser(null);
+    const [selectedMovieId, setSelectedMovieId] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isArtistModalOpen, setIsArtistModalOpen] = useState(false);
+
+  const handleMovieClick = (movieId: any) => {
+    setSelectedMovieId(movieId);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedMovieId(null);
+  };
+
+  const handleArtistClick = () => {
+    setIsModalOpen(false);
+    setSelectedMovieId(null);
+    setIsArtistModalOpen(true);
+  };
+
+  const handleCloseArtistModal = () => {
+    setIsArtistModalOpen(false);
   };
 
   return (
@@ -74,19 +96,31 @@ const Homepage = () => {
           </div>
         </div>
         <section className="homepage-movies-section">
-          <MoviesSlider />
-          <MoviesSlider />
+          <MoviesSlider contentType="movies" category="popular"  onMovieClick={handleMovieClick} />
+          <MoviesSlider contentType="movies" category="newRelease"  onMovieClick={handleMovieClick} />
           <div className="movie-banner">
             <h2>Coming soon</h2>
             <img src={require(`../../assets/images/Banner/banner2.png`)} alt="" />
           </div>
-          <MoviesSlider />
+          <MoviesSlider contentType="movies" category="recommendation"  onMovieClick={handleMovieClick} />
           <div className="movie-banner">
             <h2>Coming soon</h2>
             <img src={require(`../../assets/images/Banner/banner3.jpeg`)} alt="" />
           </div>
-          <MoviesSlider />
-          <MoviesSlider />
+          <MoviesSlider contentType="podcasts" customTitle="Podcasts"  onMovieClick={handleMovieClick} />
+          <MoviesSlider contentType="kids" customTitle="Kids"  onMovieClick={handleMovieClick} />
+
+          {isModalOpen && selectedMovieId && (
+        <MovieOverview
+          movieId={selectedMovieId}
+          onClose={handleCloseModal}
+          onArtistClick={handleArtistClick}
+        />
+      )}
+
+      {isArtistModalOpen && (
+        <ArtistOverview onClose={handleCloseArtistModal} />
+      )}
         </section>
         <Footer />
       </main>

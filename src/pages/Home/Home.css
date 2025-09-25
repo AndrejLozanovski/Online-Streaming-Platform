@@ -15,7 +15,6 @@
   overflow: hidden;
   white-space: nowrap;
   position: absolute;
-  z-index: 999999999;
   bottom: 2%;
   right: 0;
   width: 45%;
@@ -35,6 +34,10 @@
 
 .homepage .homepage-movies-section {
   margin-left: 10%;
+}
+
+.homepage .homepage-movies-section .movie-banner {
+  color: white;
 }
 
 .homepage .homepage-movies-section .movie-banner img {

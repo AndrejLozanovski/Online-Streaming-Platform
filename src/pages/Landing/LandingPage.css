@@ -112,13 +112,40 @@
   display: flex;
   justify-content: space-around;
   text-align: center;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
   padding-top: 100px;
 }
 
-.landing-page-icons.show .landing-page-icons-content {
+.landing-page-icon-content {
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(5px);
+  transition: all 0.8s ease-out;
+}
+
+.landing-page-icon-content.animate-icon {
   opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.landing-page-icon-content.icon-1 {
+  transition-delay: 0.1s;
+}
+
+.landing-page-icon-content.icon-2 {
+  transition-delay: 0.3s;
+}
+
+.landing-page-icon-content.icon-3 {
+  transition-delay: 0.5s;
+}
+
+.landing-page-icon-content.icon-4 {
+  transition-delay: 0.7s;
+}
+
+.landing-page-icon-content.icon-5 {
+  transition-delay: 0.9s;
 }
 
 .landing-page-rooms {
@@ -151,7 +178,10 @@
 .landing-page-rooms .room-row-2 .podcasts-room .podcasts,
 .landing-page-rooms .room-row-2 .tv-series-room .series {
   position: relative;
-  min-height: 310px;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .landing-page-rooms .room-row-1 .movie-room .movies img,
@@ -160,10 +190,20 @@
 .landing-page-rooms .room-row-2 .podcasts-room .podcasts img,
 .landing-page-rooms .room-row-2 .tv-series-room .series img {
   position: absolute;
-  padding: 5px;
-  width: 34.5%;
-  height: 100%;
+  padding: 12px;
+  width: 30%;
+  height: 80%;
   border-radius: 15px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.landing-page-rooms .room-row-1 .movie-room .movies img:hover,
+.landing-page-rooms .room-row-1 .kids-room .kids img:hover,
+.landing-page-rooms .room-row-1 .doc-room .documentaries img:hover,
+.landing-page-rooms .room-row-2 .podcasts-room .podcasts img:hover,
+.landing-page-rooms .room-row-2 .tv-series-room .series img:hover {
+  transform: scale(1.05);
 }
 
 .landing-page-rooms .room-row-1 .movie-room .movies img:nth-child(1),
@@ -173,6 +213,7 @@
 .landing-page-rooms .room-row-2 .tv-series-room .series img:nth-child(1) {
   z-index: 5;
   left: 0;
+  top: 7.5%;
 }
 
 .landing-page-rooms .room-row-1 .movie-room .movies img:nth-child(2),
@@ -181,7 +222,8 @@
 .landing-page-rooms .room-row-2 .podcasts-room .podcasts img:nth-child(2),
 .landing-page-rooms .room-row-2 .tv-series-room .series img:nth-child(2) {
   z-index: 4;
-  left: 87px;
+  left: 17%;
+  top: 7.5%;
 }
 
 .landing-page-rooms .room-row-1 .movie-room .movies img:nth-child(3),
@@ -190,7 +232,8 @@
 .landing-page-rooms .room-row-2 .podcasts-room .podcasts img:nth-child(3),
 .landing-page-rooms .room-row-2 .tv-series-room .series img:nth-child(3) {
   z-index: 3;
-  left: calc(87px * 2);
+  left: 34%;
+  top: 7.5%;
 }
 
 .landing-page-rooms .room-row-1 .movie-room .movies img:nth-child(4),
@@ -199,7 +242,8 @@
 .landing-page-rooms .room-row-2 .podcasts-room .podcasts img:nth-child(4),
 .landing-page-rooms .room-row-2 .tv-series-room .series img:nth-child(4) {
   z-index: 2;
-  left: calc(87px * 3);
+  left: 51%;
+  top: 7.5%;
 }
 
 .landing-page-rooms .room-row-1 .movie-room .movies img:nth-child(5),
@@ -208,7 +252,8 @@
 .landing-page-rooms .room-row-2 .podcasts-room .podcasts img:nth-child(5),
 .landing-page-rooms .room-row-2 .tv-series-room .series img:nth-child(5) {
   z-index: 1;
-  left: calc(87px * 4);
+  left: 68%;
+  top: 7.5%;
 }
 
 .landing-page-rooms img {

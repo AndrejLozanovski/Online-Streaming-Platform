@@ -1,15 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import "../Navigation/Navigation.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useUserStore } from "../../stores/user-store";
 
 const Navigation = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const user = useUserStore((state) => state.user);
+  const logout = useUserStore((state) => state.logout);
+  const navigate = useNavigate();
 
   const handleOpenDropdown = () => {
     setIsDropdownOpen((prevState) => !prevState);
   };
 
-  const handleClickOutside = (event: any) => {
+  const handleClickOutside = useCallback((event: any) => {
     if (
       isDropdownOpen &&
       !event.target.closest(".menu-dropdown") &&
@@ -17,6 +21,11 @@ const Navigation = () => {
     ) {
       setIsDropdownOpen(false);
     }
+  }, [isDropdownOpen]);
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
   };
 
   useEffect(() => {
@@ -24,15 +33,29 @@ const Navigation = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isDropdownOpen]);
+  }, [isDropdownOpen, handleClickOutside]);
 
   return (
     <nav>
       <div className="nav-wrapper">
         <li className="nav-item mt-30">
           <Link to={"/userprofile"} className="move-up">
-            <img src={require(`../../assets/images/Icons/Homepage/User.png`)} alt="profile icon" />
-            <span>Profile</span>
+            {user?.profileImage ? (
+              <img
+                src={user.profileImage}
+                alt="Profile"
+                style={{
+                  width: '30px',
+                  height: '30px',
+                  borderRadius: '50%',
+                  objectFit: 'cover',
+                  border: '2px solid #fff'
+                }}
+              />
+            ) : (
+              <img src={require(`../../assets/images/Icons/Homepage/User.png`)} alt="profile icon" />
+            )}
+            <span>{user?.username || 'Profile'}</span>
           </Link>
         </li>
         <ul className="nav-list">
@@ -110,6 +133,39 @@ const Navigation = () => {
             />
             <span>Setting</span>
           </Link>
+        </li>
+        <li className="nav-item mb-30">
+          <button
+            onClick={handleLogout}
+            className="logout-btn"
+            style={{
+              background: 'transparent',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              color: '#fff',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '15px',
+              padding: '6px 8px',
+              borderRadius: '6px',
+              fontWeight: '500',
+              transition: 'all 0.2s ease',
+              minWidth: '60px'
+            }}
+            onMouseEnter={(e) => {
+              const target = e.target as HTMLElement;
+              target.style.background = 'rgba(255, 255, 255, 0.1)';
+              target.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+            }}
+            onMouseLeave={(e) => {
+              const target = e.target as HTMLElement;
+              target.style.background = 'transparent';
+              target.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+            }}
+          >
+            Logout
+          </button>
         </li>
       </div>
     </nav>
